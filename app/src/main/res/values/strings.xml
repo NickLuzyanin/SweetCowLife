@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Lifeofacow</string>
+
+
+    <string name="nav_header_name">Lifeofacow</string>
+
+    <string name="animallist">Список животных</string>
+    <string name="cowpassport">Паспорт коровы</string>
+
+    /*For Activities*/
+    <string name="name_of_AddCowPassportFragment">Паспорт коровы</string>
+
+    /*For Buttons*/
+    <string name="saveButton_passport">Сохранить паспорт</string>
+
+
+
+    /*For ListofCowFragment*/
+    <string name="no_newCow">Нет новых коров</string>
+
+
+
+    /*For AddCowPassportFragment*/
+    <string name="сow_number">Номер коровы</string>
+    <string name="сow_poroda">Порода</string>
+    <string name="сow_mast">Масть</string>
+    <string name="сow_birthday">День рождения</string>
+    <string name="сow_mother">Мать</string>
+    <string name="сow_father">Отец</string>
+
+
+
+
+
+</resources>

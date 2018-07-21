@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mts.cow.nikolay.lifeofacow.screen.cowpassport.AddCowPassportActivity">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_cow_number"
+        android:layout_width="161dp"
+        android:layout_height="99dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:baselineAligned="false"
+        android:padding="8dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <AutoCompleteTextView
+            android:id="@+id/input_cow_number"
+            android:layout_width="144dp"
+            android:layout_height="64dp"
+            android:editable="false"
+            android:hint="@string/сow_number"
+            android:inputType="textShortMessage"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_poroda"
+        android:layout_width="161dp"
+        android:layout_height="99dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:baselineAligned="false"
+        android:padding="8dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_cow_number"
+        tools:ignore="MissingConstraints">
+
+        <AutoCompleteTextView
+            android:id="@+id/input_poroda"
+            android:layout_width="144dp"
+            android:layout_height="64dp"
+            android:editable="false"
+            android:hint="@string/сow_poroda"
+            android:inputType="textShortMessage"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_mast"
+        android:layout_width="161dp"
+        android:layout_height="99dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:baselineAligned="false"
+        android:padding="8dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_poroda"
+        tools:ignore="MissingConstraints">
+
+        <AutoCompleteTextView
+            android:id="@+id/input_mast"
+            android:layout_width="144dp"
+            android:layout_height="64dp"
+            android:editable="false"
+            android:hint="@string/сow_mast"
+            android:inputType="textShortMessage"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_birthday"
+        android:layout_width="161dp"
+        android:layout_height="99dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:baselineAligned="false"
+        android:padding="8dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/input_layout_cow_number"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <AutoCompleteTextView
+            android:id="@+id/input_birthday"
+            android:layout_width="144dp"
+            android:layout_height="64dp"
+            android:editable="false"
+            android:hint="@string/сow_birthday"
+            android:inputType="textShortMessage"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_mother"
+        android:layout_width="161dp"
+        android:layout_height="99dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:baselineAligned="false"
+        android:padding="8dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/input_layout_poroda"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_birthday"
+        tools:ignore="MissingConstraints">
+
+        <AutoCompleteTextView
+            android:id="@+id/input_mother"
+            android:layout_width="144dp"
+            android:layout_height="64dp"
+            android:editable="false"
+            android:hint="@string/сow_mother"
+            android:inputType="textShortMessage"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_father"
+        android:layout_width="161dp"
+        android:layout_height="99dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:baselineAligned="false"
+        android:padding="8dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/input_layout_mast"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_mother"
+        tools:ignore="MissingConstraints">
+
+        <AutoCompleteTextView
+            android:id="@+id/input_father"
+            android:layout_width="144dp"
+            android:layout_height="64dp"
+            android:editable="false"
+            android:hint="@string/сow_father"
+            android:inputType="textShortMessage"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/saveButton_passport"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_mast" />
+
+</android.support.constraint.ConstraintLayout>
