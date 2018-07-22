@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    /*For CardView Style*/
+
+    <color name="Indigo">#4b0082</color>
+    <color name="Ultramarin">#120a8f</color>
+    <color name="LightBlue">#5360fe</color>
+    <color name="LightLightBlue">#D6E0FF</color>
+
 </resources>

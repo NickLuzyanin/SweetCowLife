@@ -40,7 +40,7 @@
 
     /*For SnackBar*/
     <string name="successfully_saved_cow">Корову сохранили :=)</string>
-    <string name="loading_tasks_error">Ошибка при загрузке коров из базы данных</string>
+    <string name="loading_cows_error">База данных пуста</string>
 
 
 

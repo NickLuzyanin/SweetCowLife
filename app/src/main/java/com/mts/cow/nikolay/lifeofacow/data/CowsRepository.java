@@ -63,9 +63,6 @@ public class CowsRepository implements CowsDataSource {
         checkNotNull(cow);
         mCowsLocalDataSource.saveCow(cow);
 
-
-
-
     }
 
 

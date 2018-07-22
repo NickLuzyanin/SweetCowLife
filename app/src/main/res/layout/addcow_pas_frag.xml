@@ -12,13 +12,13 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_cow_number"
-        android:layout_width="161dp"
-        android:layout_height="99dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="154dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:baselineAligned="false"
-        android:padding="8dp"
+
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,8 +26,8 @@
 
         <AutoCompleteTextView
             android:id="@+id/input_cow_number"
-            android:layout_width="144dp"
-            android:layout_height="64dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:editable="false"
             android:hint="@string/сow_number"
             android:inputType="textShortMessage"
@@ -37,13 +37,13 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_poroda"
-        android:layout_width="161dp"
-        android:layout_height="99dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="154dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:baselineAligned="false"
-        android:padding="8dp"
+
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_layout_cow_number"
@@ -51,8 +51,8 @@
 
         <AutoCompleteTextView
             android:id="@+id/input_breed"
-            android:layout_width="144dp"
-            android:layout_height="64dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:editable="false"
             android:hint="@string/сow_poroda"
             android:inputType="textShortMessage"
@@ -62,13 +62,13 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_mast"
-        android:layout_width="161dp"
-        android:layout_height="99dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="154dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:baselineAligned="false"
-        android:padding="8dp"
+
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_layout_poroda"
@@ -76,8 +76,8 @@
 
         <AutoCompleteTextView
             android:id="@+id/input_suit"
-            android:layout_width="144dp"
-            android:layout_height="64dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:editable="false"
             android:hint="@string/сow_mast"
             android:inputType="textShortMessage"
@@ -88,22 +88,22 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_birthday"
-        android:layout_width="161dp"
-        android:layout_height="99dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="154dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
         android:baselineAligned="false"
-        android:padding="8dp"
+
         android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/input_layout_cow_number"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <AutoCompleteTextView
             android:id="@+id/input_birthday"
-            android:layout_width="144dp"
-            android:layout_height="64dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:editable="false"
             android:hint="@string/сow_birthday"
             android:inputType="textShortMessage"
@@ -113,13 +113,13 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_mother"
-        android:layout_width="161dp"
-        android:layout_height="99dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="154dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="16dp"
         android:baselineAligned="false"
-        android:padding="8dp"
+
         android:visibility="visible"
         app:layout_constraintStart_toEndOf="@+id/input_layout_poroda"
         app:layout_constraintTop_toBottomOf="@+id/input_layout_birthday"
@@ -127,8 +127,8 @@
 
         <AutoCompleteTextView
             android:id="@+id/input_mother"
-            android:layout_width="144dp"
-            android:layout_height="64dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:editable="false"
             android:hint="@string/сow_mother"
             android:inputType="textShortMessage"
@@ -138,13 +138,13 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_father"
-        android:layout_width="161dp"
-        android:layout_height="99dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="154dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="16dp"
         android:baselineAligned="false"
-        android:padding="8dp"
+
         android:visibility="visible"
         app:layout_constraintStart_toEndOf="@+id/input_layout_mast"
         app:layout_constraintTop_toBottomOf="@+id/input_layout_mother"
@@ -152,8 +152,8 @@
 
         <AutoCompleteTextView
             android:id="@+id/input_father"
-            android:layout_width="144dp"
-            android:layout_height="64dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:editable="false"
             android:hint="@string/сow_father"
             android:inputType="textShortMessage"
@@ -168,8 +168,33 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_weight="1"
         android:text="@string/saveButton_passport"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_layout_mast" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="224dp"
+
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button">
+
+        <view
+            android:id="@+id/line_view"
+            class="im.dacer.androidcharts.LineView"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="14dp" />
+    </HorizontalScrollView>
 
 </android.support.constraint.ConstraintLayout>

@@ -10,4 +10,16 @@
 
     <style name="Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+
+    /*For CordView*/
+    <style name="MyCardViewStyle" parent="Theme.AppCompat.Light">
+        <item name="cardCornerRadius">5dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="contentPaddingBottom">16dp</item>
+        <item name="contentPaddingTop">16dp</item>
+        <item name="contentPaddingLeft">10dp</item>
+        <item name="contentPaddingRight">10dp</item>
+        <item name="cardBackgroundColor">@color/LightLightBlue</item>
+    </style>
+
 </resources>

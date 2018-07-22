@@ -26,7 +26,8 @@
         <activity
 
             android:name=".screen.animalList.ListofCowActivity"
-            android:label="@string/animallist">
+            android:label="@string/animallist"
+            android:screenOrientation="landscape">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

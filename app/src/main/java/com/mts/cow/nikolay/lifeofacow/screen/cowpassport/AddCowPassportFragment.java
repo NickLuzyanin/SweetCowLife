@@ -2,6 +2,7 @@ package com.mts.cow.nikolay.lifeofacow.screen.cowpassport;
 
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.mts.cow.nikolay.lifeofacow.R;
@@ -22,6 +24,7 @@ import javax.inject.Inject;
 
 
 import dagger.android.support.DaggerFragment;
+import im.dacer.androidcharts.LineView;
 
 public class AddCowPassportFragment extends DaggerFragment implements AddCowPassportContract.View {
 
@@ -35,6 +38,8 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     private AutoCompleteTextView cowBirthDayAutoCompleteText;
     private AutoCompleteTextView cowMotherAutoCompleteText;
     private AutoCompleteTextView cowFatherAutoCompleteText;
+
+    private int randomint = 9;
 
 
 
@@ -107,6 +112,11 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
        cowMotherAutoCompleteText=root.findViewById(R.id.input_mother);
        cowFatherAutoCompleteText=root.findViewById(R.id.input_father);
 
+        final LineView lineView = (LineView) root.findViewById(R.id.line_view);
+
+        initLineView(lineView);
+
+        randomSet(lineView);
 
 
         setHasOptionsMenu(true);
@@ -115,8 +125,77 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     }
 
 
+    private void initLineView(LineView lineView) {
+
+
+        ArrayList<String> test = new ArrayList<String>();
+        for (int i = 0; i < randomint; i++) {
+            test.add(String.valueOf(i + 1));
+        }
+        lineView.setBottomTextList(test);
+        lineView.setColorArray(new int[] {
+                Color.parseColor("#F44336"), Color.parseColor("#9C27B0"),
+                Color.parseColor("#2196F3"), Color.parseColor("#009688")
+        });
+        lineView.setDrawDotLine(true);
+        lineView.setShowPopup(LineView.SHOW_POPUPS_NONE);
+    }
+
+    private void randomSet(LineView lineView) {
+        ArrayList<Integer> dataList = new ArrayList<>();
+        float random = (float) (Math.random() * 9 + 1);
+        for (int i = 0; i < randomint; i++) {
+            dataList.add((int) (Math.random() * random));
+        }
+
+        ArrayList<Integer> dataList2 = new ArrayList<>();
+        random = (int) (Math.random() * 9 + 1);
+        for (int i = 0; i < randomint; i++) {
+            dataList2.add((int) (Math.random() * random));
+        }
+
+        ArrayList<Integer> dataList3 = new ArrayList<>();
+        random = (int) (Math.random() * 9 + 1);
+        for (int i = 0; i < randomint; i++) {
+            dataList3.add((int) (Math.random() * random));
+        }
+
+        ArrayList<ArrayList<Integer>> dataLists = new ArrayList<>();
+        dataLists.add(dataList);
+        dataLists.add(dataList2);
+        dataLists.add(dataList3);
+
+        lineView.setDataList(dataLists);
+
+        ArrayList<Float> dataListF = new ArrayList<>();
+        float randomF = (float) (Math.random() * 9 + 1);
+        for (int i = 0; i < randomint; i++) {
+            dataListF.add((float) (Math.random() * randomF));
+        }
+
+        ArrayList<Float> dataListF2 = new ArrayList<>();
+        randomF = (int) (Math.random() * 9 + 1);
+        for (int i = 0; i < randomint; i++) {
+            dataListF2.add((float) (Math.random() * randomF));
+        }
+
+        ArrayList<Float> dataListF3 = new ArrayList<>();
+        randomF = (int) (Math.random() * 9 + 1);
+        for (int i = 0; i < randomint; i++) {
+            dataListF3.add((float) (Math.random() * randomF));
+        }
+
+
+    }
+
+
+
+
     @Override
     public void showCowGraph(List<Integer> cowParams) {
+
+
+
 
     }
 

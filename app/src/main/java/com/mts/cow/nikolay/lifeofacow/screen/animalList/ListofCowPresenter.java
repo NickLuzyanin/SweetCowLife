@@ -59,7 +59,7 @@ public class ListofCowPresenter implements ListofCowContract.Presenter {
 
             @Override
             public void onDataNotAvailable() {
-                mCowListView.showLoadingTasksError();
+                mCowListView.showLoadingCowsError();
             }
         });
 

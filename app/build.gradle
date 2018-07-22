@@ -56,6 +56,8 @@ dependencies {
     //library for autocomplete any EditText
     implementation 'com.otaliastudios:autocomplete:1.1.0'
 
+    implementation 'im.dacer:AndroidCharts:1.0.4'
+
 
 
 

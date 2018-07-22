@@ -16,7 +16,7 @@ public interface ListofCowContract {
 
         void showCowsFromLocalDB(List<Cows> cows);
 
-        void showLoadingTasksError();
+        void showLoadingCowsError();
 
     }
 
