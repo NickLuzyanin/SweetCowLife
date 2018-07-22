@@ -31,7 +31,7 @@ public interface AddCowPassportContract {
 
     interface Presenter extends BasePresenter<View> {
 
-        void saveCow(String cowNumber, String cowBreed, boolean state);
+        void saveCow(String cowNumber, String cowBreed, String cowSuit,String birthDay,String mother,String father,boolean state);
         void getCowGraphParams();
         void getStreetList();
 

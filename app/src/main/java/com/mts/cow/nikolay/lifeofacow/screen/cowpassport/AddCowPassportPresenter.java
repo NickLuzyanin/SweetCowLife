@@ -44,9 +44,9 @@ public class AddCowPassportPresenter implements AddCowPassportContract.Presenter
 
 
     @Override
-    public void saveCow(String cowNumber, String cowBreed, boolean state) {
+    public void saveCow(String cowNumber, String cowBreed, String cowSuit,String birthDay,String mother,String father,boolean state) {
         if (isNewTask()) {
-            createCow(cowNumber, cowBreed, state);
+            createCow(cowNumber,cowBreed,cowSuit,birthDay,mother,father,state);
         } else {
            // updateCow(cowNumber, cowBreed, cowsuit, birthDay, mother, father);
         }
@@ -55,8 +55,8 @@ public class AddCowPassportPresenter implements AddCowPassportContract.Presenter
     }
 
 
-    private void createCow(String cowNumber, String cowBreed, boolean state) {
-       Cows newCow = new Cows(cowNumber,cowBreed, "4",state,"Зеленоградка","988","Королева Англии","Король Артур");
+    private void createCow(String cowNumber, String cowBreed, String cowSuit,String birthDay,String mother,String father,boolean state) {
+       Cows newCow = new Cows(cowNumber,cowBreed, "1",state,cowSuit,birthDay,mother,father);
         if (newCow.isEmpty()) {
             if (mAddCowView != null) {
                // mAddCowView.showEmptyTaskError();

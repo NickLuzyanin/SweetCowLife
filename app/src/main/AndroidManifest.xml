@@ -23,7 +23,11 @@
 
 
 
-        <activity android:name=".screen.animalList.ListofCowActivity">
+        <activity
+
+            android:name=".screen.animalList.ListofCowActivity"
+            android:label="@string/animallist">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

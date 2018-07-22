@@ -83,20 +83,11 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
        listCows = (RecyclerView)root.findViewById(R.id.listOfCows);
        listCows.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
-
-
-
-
         // Set up floating action button
         FloatingActionButton fab = getActivity().findViewById(R.id.fab_add_cow_pass);
 
         fab.setImageResource(R.drawable.ic_addpass);
         fab.setOnClickListener(v -> mPresenter.addNewCowPassport());
-
-
-
-
 
         setHasOptionsMenu(true);
 
@@ -168,6 +159,11 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
         public void onBindViewHolder(CowAdapter.ViewHolder holder, int position) {
             Cows listcows = Listcows.get(position);
             holder.mCowNumber.setText(listcows.getCowNumber());
+            holder.mCowBreed.setText(listcows.getBreed());
+            holder.mCowSuit.setText(listcows.getSuit());
+            holder.mCowBirthDay.setText(listcows.getBirthDay());
+
+
         }
 
         @Override
@@ -177,10 +173,18 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
 
         public class ViewHolder extends RecyclerView.ViewHolder  {
             TextView mCowNumber;
+            TextView mCowBreed;
+            TextView mCowSuit;
+            TextView mCowBirthDay;
+
 
             ViewHolder(View itemView) {
                 super(itemView);
                 mCowNumber = itemView.findViewById(R.id.textView_сow_numberLL);
+                mCowBreed = itemView.findViewById(R.id.textView_сow_BreedLL);
+                mCowSuit = itemView.findViewById(R.id.textView_сow_SuitLL);
+                mCowBirthDay = itemView.findViewById(R.id.textView_сow_age);
+
 
             }
 

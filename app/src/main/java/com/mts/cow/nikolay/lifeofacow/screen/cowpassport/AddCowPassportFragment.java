@@ -84,7 +84,11 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
         fab.setImageResource(R.drawable.ic_done);
         fab.setOnClickListener(v -> {
                 mPresenter.saveCow(cowNumberAutoCompleteText.getText().toString(),
-                        cowBreedAutoCompleteText.getText().toString(),false);
+                                    cowBreedAutoCompleteText.getText().toString(),
+                        cowSuitAutoCompleteText.getText().toString(),
+                        cowBirthDayAutoCompleteText.getText().toString(),
+                        cowMotherAutoCompleteText.getText().toString(),
+                        cowFatherAutoCompleteText.getText().toString(),false);
         });
 
     }
