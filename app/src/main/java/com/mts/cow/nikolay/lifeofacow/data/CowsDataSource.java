@@ -6,9 +6,11 @@ import java.util.List;
 
 public interface CowsDataSource {
 
-    interface LoadTasksCallback {
+    interface LoadCowsCallback {
 
         void onCowsLoaded(List<Cows> cows);
+
+
 
         void onDataNotAvailable();
     }
@@ -20,7 +22,7 @@ public interface CowsDataSource {
         void onDataNotAvailable();
     }
 
-    void getCows(@NonNull LoadTasksCallback callback);
+    void getCows(@NonNull LoadCowsCallback callback);
 
     void getCow(@NonNull String CowId, @NonNull GetTaskCallback callback);
 

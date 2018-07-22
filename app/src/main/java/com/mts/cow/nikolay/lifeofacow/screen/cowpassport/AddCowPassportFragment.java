@@ -1,6 +1,7 @@
 package com.mts.cow.nikolay.lifeofacow.screen.cowpassport;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -12,7 +13,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.ProgressBar;
 
 import com.mts.cow.nikolay.lifeofacow.R;
+import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -27,7 +30,11 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
 
 
     private AutoCompleteTextView cowNumberAutoCompleteText;
-    private AutoCompleteTextView cowPorodaAutoCompleteText;
+    private AutoCompleteTextView cowBreedAutoCompleteText;
+    private AutoCompleteTextView cowSuitAutoCompleteText;
+    private AutoCompleteTextView cowBirthDayAutoCompleteText;
+    private AutoCompleteTextView cowMotherAutoCompleteText;
+    private AutoCompleteTextView cowFatherAutoCompleteText;
 
 
 
@@ -47,12 +54,13 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     @Override
     public void onResume() {
         super.onResume();
+        mPresenter.takeView(this);
 
     }
 
     @Override
     public void onPause() {
-        //mPresenter.dropView();
+        mPresenter.dropView();
         super.onPause();
     }
 
@@ -62,11 +70,21 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
         super.onActivityCreated(savedInstanceState);
 
 
+        /*CowTTX Cowttx = new CowTTX();
+        Cowttx.setMilk_yield("100");
+        Cowttx.setFat_content("25");
+        Cowttx.setWeight("800");
+
+        List<CowTTX> cowttx = new ArrayList<CowTTX>();
+        cowttx.add(Cowttx);*/
+
+
 
         FloatingActionButton fab = getActivity().findViewById(R.id.fab_edit_cow_pass);
         fab.setImageResource(R.drawable.ic_done);
         fab.setOnClickListener(v -> {
-
+                mPresenter.saveCow(cowNumberAutoCompleteText.getText().toString(),
+                        cowBreedAutoCompleteText.getText().toString(),true);
         });
 
     }
@@ -79,7 +97,11 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
         View root = inflater.inflate(R.layout.addcow_pas_frag, container, false);
 
        cowNumberAutoCompleteText =root.findViewById(R.id.input_cow_number);
-       cowPorodaAutoCompleteText =root.findViewById(R.id.input_poroda);
+       cowBreedAutoCompleteText =root.findViewById(R.id.input_breed);
+       cowSuitAutoCompleteText=root.findViewById(R.id.input_suit);
+       cowBirthDayAutoCompleteText=root.findViewById(R.id.input_birthday);
+       cowMotherAutoCompleteText=root.findViewById(R.id.input_mother);
+       cowFatherAutoCompleteText=root.findViewById(R.id.input_father);
 
 
 
@@ -89,42 +111,15 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
     public void showCowGraph(List<Integer> cowParams) {
 
+    }
+
+    @Override
+    public void showCowsList() {
+        getActivity().setResult(Activity.RESULT_OK);
+        getActivity().finish();
     }
 
     @Override

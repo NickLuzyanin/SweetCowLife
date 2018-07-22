@@ -6,6 +6,9 @@ import android.support.annotation.Nullable;
 import com.mts.cow.nikolay.lifeofacow.data.Cows;
 import com.mts.cow.nikolay.lifeofacow.data.CowsDataSource;
 import com.mts.cow.nikolay.lifeofacow.data.CowsRepository;
+import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -40,28 +43,28 @@ public class AddCowPassportPresenter implements AddCowPassportContract.Presenter
 
 
     @Override
-    public void saveTask(String cowNumber, String cowBreed, String cowsuit, String birthDay, String mother, String father) {
+    public void saveCow(String cowNumber, String cowBreed, boolean state) {
         if (isNewTask()) {
-            createCow(cowNumber, cowBreed, cowsuit, birthDay, mother, father);
+            createCow(cowNumber, cowBreed, state);
         } else {
-            updateCow(cowNumber, cowBreed, cowsuit, birthDay, mother, father);
+           // updateCow(cowNumber, cowBreed, cowsuit, birthDay, mother, father);
         }
 
 
     }
 
 
-    private void createCow(String cowNumber, String cowBreed, String cowsuit, String birthDay, String mother, String father) {
-       Cows newTask = new Cows(cowNumber,cowBreed,cowsuit,birthDay,mother,father);
-        if (newTask.isEmpty()) {
-            if (mAddTaskView != null) {
-                mAddTaskView.showEmptyTaskError();
+    private void createCow(String cowNumber, String cowBreed, boolean state) {
+       Cows newCow = new Cows(cowNumber,cowBreed,state);
+        if (newCow.isEmpty()) {
+            if (mAddCowView != null) {
+               // mAddCowView.showEmptyTaskError();
             }
         } else {
-            mTasksRepository.saveTask(newTask);
+            mCowsRepository.saveCow(newCow);
 
-            if (mAddTaskView != null) {
-                mAddTaskView.showTasksList();
+            if (mAddCowView != null) {
+                mAddCowView.showCowsList();
             }
         }
     }
@@ -72,6 +75,8 @@ public class AddCowPassportPresenter implements AddCowPassportContract.Presenter
     private boolean isNewTask() {
         return mCowId == null;
     }
+
+
 
     @Override
     public void getCowGraphParams() {

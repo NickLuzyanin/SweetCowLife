@@ -9,11 +9,6 @@ import com.mts.cow.nikolay.lifeofacow.data.Cows;
 @Database(entities = {Cows.class}, version = 1)
 public abstract class CowDatabase extends RoomDatabase {
 
-
-
         public abstract CowsDao cowsDao();
-
-
-
 
 }

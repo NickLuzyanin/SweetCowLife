@@ -10,6 +10,17 @@ public class CowTTX {
 
   private String weight;
 
+
+
+  public CowTTX(String milk_yield,String fat_content,String weight){
+
+      this.milk_yield=milk_yield;
+      this.fat_content=fat_content;
+      this.weight=weight;
+
+    }
+
+
     public String getMilk_yield() {
         return milk_yield;
     }

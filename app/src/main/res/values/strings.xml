@@ -29,6 +29,11 @@
     <string name="сow_father">Отец</string>
 
 
+    /*For SnackBar*/
+    <string name="successfully_saved_cow">Корову сохранили :=)</string>
+    <string name="loading_tasks_error">Ошибка при загрузке коров из базы данных</string>
+
+
 
 
 

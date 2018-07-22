@@ -4,8 +4,10 @@ package com.mts.cow.nikolay.lifeofacow.screen.cowpassport;
 
 import com.mts.cow.nikolay.lifeofacow.common.BasePresenter;
 import com.mts.cow.nikolay.lifeofacow.common.BaseView;
+import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface AddCowPassportContract {
@@ -14,6 +16,7 @@ public interface AddCowPassportContract {
     interface View extends BaseView<Presenter> {
 
         void showCowGraph(List<Integer> cowParams);
+        void showCowsList();
 
         void setTitle(String title);
 
@@ -28,7 +31,7 @@ public interface AddCowPassportContract {
 
     interface Presenter extends BasePresenter<View> {
 
-        void saveTask(String CowNumber, String CowBreed,String Cowsuit, String birthDay, String mother, String father);
+        void saveCow(String cowNumber, String cowBreed, boolean state);
         void getCowGraphParams();
         void getStreetList();
 

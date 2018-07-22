@@ -2,106 +2,154 @@ package com.mts.cow.nikolay.lifeofacow.data;
 
 
 import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.google.common.base.Objects;
+import com.google.common.base.Strings;
 import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @Entity(tableName = "cows")
-public class Cows {
+public final class Cows {
 
 
     @PrimaryKey
     @NonNull
-    @ColumnInfo(name = "cowid")
+    @ColumnInfo(name = "entryid")
     private final String mId;
 
     @Nullable
-    @ColumnInfo(name = "breed")
-    private final String mBreed;
+    @ColumnInfo(name = "title")
+    private final String mTitle;
 
     @Nullable
-    @ColumnInfo(name = "suit")
-    private final String mSuit;
+    @ColumnInfo(name = "description")
+    private final String mDescription;
 
-    @Nullable
-    @ColumnInfo(name = "birthDay")
-    private final String mBirthDay;
+    @ColumnInfo(name = "completed")
+    private final boolean mCompleted;
 
-    @Nullable
-    @ColumnInfo(name = "mother")
-    private final String mMother;
-
-    @Nullable
-    @ColumnInfo(name = "father")
-    private final String mFather;
-
-    @Nullable
-    @ColumnInfo(name = "cowttx")
-    private final ArrayList<CowTTX> cowTTX;
-
-
-
-
-
-
-
-
-
-
-
-
-    public Cows(@Nullable String cowid, @Nullable String breed, @Nullable String suit, @Nullable String birthDay, @Nullable String mother, @Nullable String father, @Nullable ArrayList<CowTTX> cowttx) {
-        mId = cowid;
-        mBreed  = breed;
-        mSuit = suit;
-        mBirthDay = birthDay;
-        mMother = mother;
-        mFather = father;
-        cowTTX = cowttx;
+    /**
+     * Use this constructor to create a new active Task.
+     *
+     * @param title       title of the task
+     * @param description description of the task
+     */
+    @Ignore
+    public Cows(@Nullable String title, @Nullable String description) {
+        this(title, description, UUID.randomUUID().toString(), false);
     }
 
+    /**
+     * Use this constructor to create an active Task if the Task already has an id (copy of another
+     * Task).
+     *
+     * @param title       title of the task
+     * @param description description of the task
+     * @param id          id of the task
+     */
+    @Ignore
+    public Cows(@Nullable String title, @Nullable String description, @NonNull String id) {
+        this(title, description, id, false);
+    }
 
+    /**
+     * Use this constructor to create a new completed Task.
+     *
+     * @param title       title of the task
+     * @param description description of the task
+     * @param completed   true if the task is completed, false if it's active
+     */
+    @Ignore
+    public Cows(@Nullable String title, @Nullable String description, boolean completed) {
+        this(title, description, UUID.randomUUID().toString(), completed);
+    }
 
-
+    /**
+     * Use this constructor to specify a completed Task if the Task already has an id (copy of
+     * another Task).
+     *
+     * @param title       title of the task
+     * @param description description of the task
+     * @param id          id of the task
+     * @param completed   true if the task is completed, false if it's active
+     */
+    public Cows(@Nullable String title, @Nullable String description,
+                @NonNull String id, boolean completed) {
+        mId = id;
+        mTitle = title;
+        mDescription = description;
+        mCompleted = completed;
+    }
 
     @NonNull
-    public String getmId() {
+    public String getId() {
         return mId;
     }
 
     @Nullable
-    public String getmBreed() {
-        return mBreed;
+    public String getTitle() {
+        return mTitle;
     }
 
     @Nullable
-    public String getmSuit() {
-        return mSuit;
+    public String getTitleForList() {
+        if (!Strings.isNullOrEmpty(mTitle)) {
+            return mTitle;
+        } else {
+            return mDescription;
+        }
     }
 
     @Nullable
-    public String getmBirthDay() {
-        return mBirthDay;
+    public String getDescription() {
+        return mDescription;
     }
 
-    @Nullable
-    public String getmMother() {
-        return mMother;
+    public boolean isCompleted() {
+        return mCompleted;
     }
 
-    @Nullable
-    public String getmFather() {
-        return mFather;
+    public boolean isActive() {
+        return !mCompleted;
     }
 
-    @Nullable
-    public ArrayList<CowTTX> getCowTTX() {
-        return cowTTX;
+    public boolean isEmpty() {
+        return Strings.isNullOrEmpty(mTitle) &&
+                Strings.isNullOrEmpty(mDescription);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cows cow = (Cows) o;
+        return Objects.equal(mId, cow.mId) &&
+                Objects.equal(mTitle, cow.mTitle) &&
+                Objects.equal(mDescription, cow.mDescription);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(mId, mTitle, mDescription);
+    }
+
+    @Override
+    public String toString() {
+        return "Cows with title " + mTitle;
+    }
+
+
+
+
+
+
 }

@@ -5,6 +5,7 @@ import android.app.Application;
 
 
 import com.mts.cow.nikolay.lifeofacow.AppDelegate;
+import com.mts.cow.nikolay.lifeofacow.data.repository.local.CowsRepositoryModule;
 
 import javax.inject.Singleton;
 
@@ -15,7 +16,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
-@Component(modules = {//TasksRepositoryModule.class,
+@Component(modules = {CowsRepositoryModule.class,
        // NetModule.class,
                         ApplicationModule.class,
                         ActivityBindingModule.class,

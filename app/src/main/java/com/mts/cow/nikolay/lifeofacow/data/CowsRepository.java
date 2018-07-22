@@ -2,6 +2,13 @@ package com.mts.cow.nikolay.lifeofacow.data;
 
 import android.support.annotation.NonNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+
 public class CowsRepository implements CowsDataSource {
 
 
@@ -10,8 +17,36 @@ public class CowsRepository implements CowsDataSource {
 
 
 
+
+
+
+
+
+    @Inject
+    CowsRepository(@Local CowsDataSource tasksLocalDataSource) {
+        mCowsLocalDataSource = tasksLocalDataSource;
+
+    }
+
     @Override
-    public void getCows(@NonNull LoadTasksCallback callback) {
+    public void getCows(@NonNull LoadCowsCallback callback) {
+
+        checkNotNull(callback);
+
+        mCowsLocalDataSource.getCows(new LoadCowsCallback() {
+
+            @Override
+            public void onCowsLoaded(List<Cows> cows) {
+
+                callback.onCowsLoaded(new ArrayList<>(cows));
+
+            }
+
+            @Override
+            public void onDataNotAvailable() {
+
+            }
+        });
 
     }
 
@@ -23,7 +58,21 @@ public class CowsRepository implements CowsDataSource {
     @Override
     public void saveCow(@NonNull Cows cow) {
 
+        checkNotNull(cow);
+        mCowsLocalDataSource.saveCow(cow);
+        int a=1;
+        if(a==1){
+
+        }
+
+
+
     }
+
+
+
+
+
 
     @Override
     public void refreshCows() {

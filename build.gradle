@@ -15,6 +15,7 @@ allprojects {
     repositories {
         jcenter()
         google()
+
     }
 }
 
@@ -30,7 +31,7 @@ ext {
     minSdkVersion = 14
     targetSdkVersion = 26
     compileSdkVersion = 26
-    buildToolsVersion = '26.0.2'
+    buildToolsVersion = '27.0.3'
 
     // App dependencies
     supportLibraryVersion = '26.1.0'
@@ -42,7 +43,7 @@ ext {
     runnerVersion = '1.0.1'
     rulesVersion = '1.0.1'
     espressoVersion = '3.0.1'
-    roomVersion = "1.0.0"
+    roomVersion = '1.1.1'
     daggerVersion = '2.11'
     dexmakerVersion = '1.2'
     constraintVersion = '1.0.2'
