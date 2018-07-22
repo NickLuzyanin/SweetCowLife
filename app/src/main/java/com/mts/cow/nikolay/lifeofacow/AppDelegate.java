@@ -5,6 +5,12 @@ package com.mts.cow.nikolay.lifeofacow;
 
 
 
+
+
+
+
+
+
 import com.mts.cow.nikolay.lifeofacow.di.DaggerAppComponent;
 
 import dagger.android.AndroidInjector;

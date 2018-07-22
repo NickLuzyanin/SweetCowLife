@@ -21,18 +21,36 @@ import java.util.UUID;
 public final class Cows {
 
 
-    @PrimaryKey
+
     @NonNull
     @ColumnInfo(name = "entryid")
     private final String mId;
 
-    @Nullable
-    @ColumnInfo(name = "title")
-    private final String mTitle;
+    @PrimaryKey
+    @NonNull
+    @ColumnInfo(name = "cowNumber")
+    private final String mCowNumber;
 
     @Nullable
-    @ColumnInfo(name = "description")
-    private final String mDescription;
+    @ColumnInfo(name = "breed")
+    private final String mBreed;
+
+    @Nullable
+    @ColumnInfo(name = "suit")
+    private final String mSuit;
+
+    @Nullable
+    @ColumnInfo(name = "birthDay")
+    private final String mBirthDay;
+
+    @Nullable
+    @ColumnInfo(name = "mother")
+    private final String mMother;
+
+    @Nullable
+    @ColumnInfo(name = "father")
+    private final String mFather;
+
 
     @ColumnInfo(name = "completed")
     private final boolean mCompleted;
@@ -40,54 +58,58 @@ public final class Cows {
     /**
      * Use this constructor to create a new active Task.
      *
-     * @param title       title of the task
-     * @param description description of the task
+     * @param cowNumber       title of the task
+     * @param breed description of the task
      */
     @Ignore
-    public Cows(@Nullable String title, @Nullable String description) {
-        this(title, description, UUID.randomUUID().toString(), false);
+    public Cows(@Nullable String cowNumber, @Nullable String breed,@Nullable String suit, @Nullable String birthDay,@Nullable String mother,@Nullable String father) {
+        this(cowNumber, breed, UUID.randomUUID().toString(), false,suit,birthDay,mother,father);
     }
 
     /**
      * Use this constructor to create an active Task if the Task already has an id (copy of another
      * Task).
      *
-     * @param title       title of the task
-     * @param description description of the task
+     * @param cowNumber       title of the task
+     * @param breed description of the task
      * @param id          id of the task
      */
     @Ignore
-    public Cows(@Nullable String title, @Nullable String description, @NonNull String id) {
-        this(title, description, id, false);
+    public Cows(@Nullable String cowNumber, @Nullable String breed, @NonNull String id,@Nullable String suit, @Nullable String birthDay,@Nullable String mother,@Nullable String father) {
+        this(cowNumber, breed, id, false,suit,birthDay,mother,father);
     }
 
     /**
      * Use this constructor to create a new completed Task.
      *
-     * @param title       title of the task
-     * @param description description of the task
+     * @param cowNumber       title of the task
+     * @param breed description of the task
      * @param completed   true if the task is completed, false if it's active
      */
     @Ignore
-    public Cows(@Nullable String title, @Nullable String description, boolean completed) {
-        this(title, description, UUID.randomUUID().toString(), completed);
+    public Cows(@Nullable String cowNumber, @Nullable String breed, boolean completed,@Nullable String suit, @Nullable String birthDay,@Nullable String mother,@Nullable String father) {
+        this(cowNumber, breed, UUID.randomUUID().toString(), completed,suit,birthDay,mother,father);
     }
 
     /**
      * Use this constructor to specify a completed Task if the Task already has an id (copy of
      * another Task).
      *
-     * @param title       title of the task
-     * @param description description of the task
+     * @param cowNumber       title of the task
+     * @param breed description of the task
      * @param id          id of the task
      * @param completed   true if the task is completed, false if it's active
      */
-    public Cows(@Nullable String title, @Nullable String description,
-                @NonNull String id, boolean completed) {
-        mId = id;
-        mTitle = title;
-        mDescription = description;
+    public Cows(@Nullable String cowNumber, @Nullable String breed,
+                @NonNull String id, boolean completed,@Nullable String suit, @Nullable String birthDay,@Nullable String mother,@Nullable String father) {
+        mId = UUID.randomUUID().toString();
+        mCowNumber = cowNumber;
+        mBreed = breed;
         mCompleted = completed;
+        mSuit = suit;
+        mBirthDay = birthDay;
+        mMother = mother;
+        mFather = father;
     }
 
     @NonNull
@@ -96,22 +118,42 @@ public final class Cows {
     }
 
     @Nullable
-    public String getTitle() {
-        return mTitle;
+    public String getCowNumber() {
+        return mCowNumber;
     }
 
     @Nullable
     public String getTitleForList() {
-        if (!Strings.isNullOrEmpty(mTitle)) {
-            return mTitle;
+        if (!Strings.isNullOrEmpty(mCowNumber)) {
+            return mCowNumber;
         } else {
-            return mDescription;
+            return mBreed;
         }
     }
 
     @Nullable
-    public String getDescription() {
-        return mDescription;
+    public String getBreed() {
+        return mBreed;
+    }
+
+    @Nullable
+    public String getSuit() {
+        return mSuit;
+    }
+
+    @Nullable
+    public String getBirthDay() {
+        return mBirthDay;
+    }
+
+    @Nullable
+    public String getMother() {
+        return mMother;
+    }
+
+    @Nullable
+    public String getFather() {
+        return mFather;
     }
 
     public boolean isCompleted() {
@@ -123,8 +165,8 @@ public final class Cows {
     }
 
     public boolean isEmpty() {
-        return Strings.isNullOrEmpty(mTitle) &&
-                Strings.isNullOrEmpty(mDescription);
+        return Strings.isNullOrEmpty(mCowNumber) &&
+                Strings.isNullOrEmpty(mBreed);
     }
 
     @Override
@@ -133,19 +175,19 @@ public final class Cows {
         if (o == null || getClass() != o.getClass()) return false;
         Cows cow = (Cows) o;
         return Objects.equal(mId, cow.mId) &&
-                Objects.equal(mTitle, cow.mTitle) &&
-                Objects.equal(mDescription, cow.mDescription);
+                Objects.equal(mCowNumber, cow.mCowNumber) &&
+                Objects.equal(mBreed, cow.mBreed);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(mId, mTitle, mDescription);
+        return Objects.hashCode(mId, mCowNumber, mBreed);
     }
 
-    @Override
+    /*@Override
     public String toString() {
-        return "Cows with title " + mTitle;
-    }
+        return "Task with title " + mCowNumber;
+    }*/
 
 
 

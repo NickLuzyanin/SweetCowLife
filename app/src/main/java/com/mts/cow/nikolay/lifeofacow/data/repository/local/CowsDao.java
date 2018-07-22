@@ -20,7 +20,7 @@ public interface CowsDao {
      *
      * @return all tasks.
      */
-    @Query("SELECT * FROM Cows")
+    @Query("SELECT * FROM cows")
     List<Cows> getCows();
 
     /**
@@ -29,8 +29,8 @@ public interface CowsDao {
      * @param taskId the task id.
      * @return the task with taskId.
      */
-    @Query("SELECT * FROM cows WHERE entryid = :taskId")
-    Cows getTaskById(String taskId);
+    @Query("SELECT * FROM Cows WHERE entryid = :taskId")
+    Cows getCowsById(String taskId);
 
     /**
      * Insert a task in the database. If the task already exists, replace it.
@@ -38,7 +38,7 @@ public interface CowsDao {
      * @param task the task to be inserted.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertTask(Cows task);
+    void insertCows(Cows task);
 
     /**
      * Update a task.
@@ -47,7 +47,7 @@ public interface CowsDao {
      * @return the number of tasks updated. This should always be 1.
      */
     @Update
-    int updateTask(Cows task);
+    int updateCows(Cows task);
 
     /**
      * Update the complete status of a task
@@ -64,13 +64,13 @@ public interface CowsDao {
      * @return the number of tasks deleted. This should always be 1.
      */
     @Query("DELETE FROM cows WHERE entryid = :taskId")
-    int deleteTaskById(String taskId);
+    int deleteCowsById(String taskId);
 
     /**
      * Delete all tasks.
      */
     @Query("DELETE FROM cows")
-    void deleteTasks();
+    void deleteCows();
 
     /**
      * Delete all completed tasks from the table.
@@ -78,7 +78,10 @@ public interface CowsDao {
      * @return the number of tasks deleted.
      */
     @Query("DELETE FROM cows WHERE completed = 1")
-    int deleteCompletedTasks();
+    int deleteCompletedCows();
+
+
+
 
 
 

@@ -9,6 +9,7 @@ import com.mts.cow.nikolay.lifeofacow.data.CowsRepository;
 import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.inject.Inject;
 
@@ -55,7 +56,7 @@ public class AddCowPassportPresenter implements AddCowPassportContract.Presenter
 
 
     private void createCow(String cowNumber, String cowBreed, boolean state) {
-       Cows newCow = new Cows(cowNumber,cowBreed,state);
+       Cows newCow = new Cows(cowNumber,cowBreed, "4",state,"Зеленоградка","988","Королева Англии","Король Артур");
         if (newCow.isEmpty()) {
             if (mAddCowView != null) {
                // mAddCowView.showEmptyTaskError();

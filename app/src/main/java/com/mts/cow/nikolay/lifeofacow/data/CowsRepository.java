@@ -45,6 +45,8 @@ public class CowsRepository implements CowsDataSource {
             @Override
             public void onDataNotAvailable() {
 
+                callback.onDataNotAvailable();
+
             }
         });
 
@@ -60,10 +62,7 @@ public class CowsRepository implements CowsDataSource {
 
         checkNotNull(cow);
         mCowsLocalDataSource.saveCow(cow);
-        int a=1;
-        if(a==1){
 
-        }
 
 
 

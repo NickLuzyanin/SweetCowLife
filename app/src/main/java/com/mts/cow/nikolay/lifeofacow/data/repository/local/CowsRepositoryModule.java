@@ -33,7 +33,7 @@ public abstract class CowsRepositoryModule {
     @Singleton
     @Provides
     static CowDatabase provideDb(Application context) {
-        return Room.databaseBuilder(context.getApplicationContext(), CowDatabase.class, "Tasks.db")
+        return Room.databaseBuilder(context.getApplicationContext(), CowDatabase.class, "Cow_MTS.db")
                 .build();
     }
 

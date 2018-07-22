@@ -37,15 +37,12 @@ public class CowsLocalDataSource implements CowsDataSource {
             @Override
             public void run() {
                 final List<Cows> tasks = mCowsDao.getCows();
-                mAppExecutors.mainThread().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (tasks.isEmpty()) {
-                            // This will be called if the table is new or just empty.
-                            callback.onDataNotAvailable();
-                        } else {
-                            callback.onCowsLoaded(tasks);
-                        }
+                mAppExecutors.mainThread().execute(() -> {
+                    if (tasks.isEmpty()) {
+                        // This will be called if the table is new or just empty.
+                        callback.onDataNotAvailable();
+                    } else {
+                        callback.onCowsLoaded(tasks);
                     }
                 });
             }
@@ -64,12 +61,7 @@ public class CowsLocalDataSource implements CowsDataSource {
     public void saveCow(@NonNull Cows cow) {
 
         checkNotNull(cow);
-        Runnable saveRunnable = new Runnable() {
-            @Override
-            public void run() {
-                mCowsDao.insertTask(cow);
-            }
-        };
+        Runnable saveRunnable = () -> mCowsDao.insertCows(cow);
         mAppExecutors.diskIO().execute(saveRunnable);
 
     }

@@ -1,5 +1,6 @@
 package com.mts.cow.nikolay.lifeofacow.screen.animalList;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +8,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,16 +38,11 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
     ListofCowContract.Presenter mPresenter;
 
 
-    private View mNoTasksView;
-    private ImageView mNoCowIcon;
-    private TextView mNoCowMainView;
-    private TextView mNoTaskAddView;
-    private LinearLayout mTasksView;
-    private TextView mFilteringLabelView;
+
+    private RecyclerView listCows;
+    private CowAdapter mCowadapter;
 
 
-    private TextView firstParamFromDB;
-    private TextView secondParamsFromDB;
 
 
 
@@ -74,39 +72,29 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
     }
 
 
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.cowlist_frag, container, false);
 
-        firstParamFromDB = root.findViewById(R.id.cow_title);
-        secondParamsFromDB = root.findViewById(R.id.cow_description);
+       listCows = (RecyclerView)root.findViewById(R.id.listOfCows);
+       listCows.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
 
 
 
-
-
-
-        mNoCowIcon = (ImageView) root.findViewById(R.id.noCowsIcon);
-        mNoCowMainView = (TextView) root.findViewById(R.id.noCowsMain);
 
         // Set up floating action button
         FloatingActionButton fab = getActivity().findViewById(R.id.fab_add_cow_pass);
 
         fab.setImageResource(R.drawable.ic_addpass);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.addNewCowPassport();
-            }
-        });
+        fab.setOnClickListener(v -> mPresenter.addNewCowPassport());
 
-        // Set up progress indicator
-        final ScrollChildSwipeRefreshLayout swipeRefreshLayout =
-                root.findViewById(R.id.refresh_layout);
+
 
 
 
@@ -138,8 +126,10 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
     @Override
     public void showCowsFromLocalDB(List<Cows> cows) {
 
-            firstParamFromDB.setText(cows.get(0).getTitle());
-            secondParamsFromDB.setText(cows.get(0).getDescription());
+        //Сюда прилетит лист объектов Cow из нашей базы "cows"
+        mCowadapter = new CowAdapter(cows);
+        listCows.setAdapter(mCowadapter);
+
 
     }
 
@@ -153,9 +143,52 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
     }
 
 
+    private class CowAdapter extends RecyclerView.Adapter<CowAdapter.ViewHolder>{
+
+
+        private List<Cows> Listcows;
 
 
 
+
+        public CowAdapter(List<Cows> cows) {
+
+            this.Listcows = cows;
+        }
+
+        @Override
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+            View v =LayoutInflater.from(parent.getContext()).inflate(R.layout.listofcow_item,parent,false);
+
+            return new ViewHolder(v);
+        }
+
+        @Override
+        public void onBindViewHolder(CowAdapter.ViewHolder holder, int position) {
+            Cows listcows = Listcows.get(position);
+            holder.mCowNumber.setText(listcows.getCowNumber());
+        }
+
+        @Override
+        public int getItemCount() {
+            return Listcows.size();
+        }
+
+        public class ViewHolder extends RecyclerView.ViewHolder  {
+            TextView mCowNumber;
+
+            ViewHolder(View itemView) {
+                super(itemView);
+                mCowNumber = itemView.findViewById(R.id.textView_сow_numberLL);
+
+            }
+
+
+        }
+
+
+    }
 
 
 }

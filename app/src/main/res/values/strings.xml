@@ -18,6 +18,13 @@
     /*For ListofCowFragment*/
     <string name="no_newCow">Нет новых коров</string>
 
+    <string name="сow_numberL">Номер коровы</string>
+    <string name="сow_porodaL">Порода</string>
+    <string name="сow_mastL">Масть</string>
+    <string name="сow_birthdayL">День рождения</string>
+    <string name="сow_motherL">Мать</string>
+    <string name="сow_fatherL">Отец</string>
+
 
 
     /*For AddCowPassportFragment*/
@@ -27,6 +34,8 @@
     <string name="сow_birthday">День рождения</string>
     <string name="сow_mother">Мать</string>
     <string name="сow_father">Отец</string>
+
+
 
 
     /*For SnackBar*/
