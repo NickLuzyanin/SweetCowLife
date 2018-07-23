@@ -5,6 +5,8 @@ import com.mts.cow.nikolay.lifeofacow.screen.animalList.ListofCowActivity;
 import com.mts.cow.nikolay.lifeofacow.screen.animalList.ListofCowModule;
 import com.mts.cow.nikolay.lifeofacow.screen.cowpassport.AddCowPassportActivity;
 import com.mts.cow.nikolay.lifeofacow.screen.cowpassport.AddCowPassportModule;
+import com.mts.cow.nikolay.lifeofacow.screen.cowpassportdetails.CowDetailsActivity;
+import com.mts.cow.nikolay.lifeofacow.screen.cowpassportdetails.CowDetailsModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -32,9 +34,9 @@ public abstract class ActivityBindingModule {
 
     /*@ActivityScoped
     @ContributesAndroidInjector(modules = StatisticsModule.class)
-    abstract StatisticsActivity statisticsActivity();
+    abstract StatisticsActivity statisticsActivity();*/
 
     @ActivityScoped
-    @ContributesAndroidInjector(modules = TaskDetailPresenterModule.class)
-    abstract TaskDetailActivity taskDetailActivity();*/
+    @ContributesAndroidInjector(modules = CowDetailsModule.class)
+    abstract CowDetailsActivity cowDetailActivity();
 }

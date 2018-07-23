@@ -15,8 +15,6 @@ import static com.mts.cow.nikolay.lifeofacow.screen.cowpassportdetails.CowDetail
 public abstract class CowDetailsModule {
 
 
-
-
         @FragmentScoped
         @ContributesAndroidInjector
         abstract CowDetailsFragment cowDetailsFragment();

@@ -1,8 +1,12 @@
 package com.mts.cow.nikolay.lifeofacow.models;
 
+import android.support.annotation.NonNull;
+
 public class CowTTX {
 
 
+
+  private String date;
 
   private String milk_yield;
 
@@ -12,8 +16,10 @@ public class CowTTX {
 
 
 
-  public CowTTX(String milk_yield,String fat_content,String weight){
+  public CowTTX(@NonNull String date,@NonNull String milk_yield, @NonNull String fat_content, @NonNull String weight){
 
+
+      this.date=date;
       this.milk_yield=milk_yield;
       this.fat_content=fat_content;
       this.weight=weight;
@@ -43,5 +49,13 @@ public class CowTTX {
 
     public void setWeight(String weight) {
         this.weight = weight;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

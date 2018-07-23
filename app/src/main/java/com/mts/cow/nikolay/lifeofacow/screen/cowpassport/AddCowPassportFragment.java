@@ -2,6 +2,7 @@ package com.mts.cow.nikolay.lifeofacow.screen.cowpassport;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,6 +17,7 @@ import android.widget.ProgressBar;
 
 import com.mts.cow.nikolay.lifeofacow.R;
 import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
+import com.mts.cow.nikolay.lifeofacow.utils.ActivityUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +28,12 @@ import javax.inject.Inject;
 import dagger.android.support.DaggerFragment;
 import im.dacer.androidcharts.LineView;
 
-public class AddCowPassportFragment extends DaggerFragment implements AddCowPassportContract.View {
+public class AddCowPassportFragment extends DaggerFragment implements AddCowPassportContract.View{
 
 
     public static final String ARGUMENT_EDIT_COW_ID = "EDIT_COW_ID";
+
+    private static final int REQUEST_COW_PARAMS = 1;
 
 
     private AutoCompleteTextView cowNumberAutoCompleteText;
@@ -38,8 +42,9 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     private AutoCompleteTextView cowBirthDayAutoCompleteText;
     private AutoCompleteTextView cowMotherAutoCompleteText;
     private AutoCompleteTextView cowFatherAutoCompleteText;
+    private Button savePassport;
 
-    private int randomint = 9;
+
 
 
 
@@ -88,13 +93,16 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
         FloatingActionButton fab = getActivity().findViewById(R.id.fab_edit_cow_pass);
         fab.setImageResource(R.drawable.ic_done);
         fab.setOnClickListener(v -> {
-                mPresenter.saveCow(cowNumberAutoCompleteText.getText().toString(),
-                                    cowBreedAutoCompleteText.getText().toString(),
-                        cowSuitAutoCompleteText.getText().toString(),
-                        cowBirthDayAutoCompleteText.getText().toString(),
-                        cowMotherAutoCompleteText.getText().toString(),
-                        cowFatherAutoCompleteText.getText().toString(),false);
+            ActivityUtils.showDialogFragment(new AddCowMilkYieldFragment(),getFragmentManager(),this,REQUEST_COW_PARAMS);
         });
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+
+
 
     }
 
@@ -111,12 +119,19 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
        cowBirthDayAutoCompleteText=root.findViewById(R.id.input_birthday);
        cowMotherAutoCompleteText=root.findViewById(R.id.input_mother);
        cowFatherAutoCompleteText=root.findViewById(R.id.input_father);
+       savePassport=root.findViewById(R.id.save_pass_button);
+       savePassport.setOnClickListener(v -> {
 
-        final LineView lineView = (LineView) root.findViewById(R.id.line_view);
+           mPresenter.saveCow(cowNumberAutoCompleteText.getText().toString(),
+                   cowBreedAutoCompleteText.getText().toString(),
+                   cowSuitAutoCompleteText.getText().toString(),
+                   cowBirthDayAutoCompleteText.getText().toString(),
+                   cowMotherAutoCompleteText.getText().toString(),
+                   cowFatherAutoCompleteText.getText().toString(),false);
 
-        initLineView(lineView);
+       });
 
-        randomSet(lineView);
+
 
 
         setHasOptionsMenu(true);
@@ -125,68 +140,7 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     }
 
 
-    private void initLineView(LineView lineView) {
 
-
-        ArrayList<String> test = new ArrayList<String>();
-        for (int i = 0; i < randomint; i++) {
-            test.add(String.valueOf(i + 1));
-        }
-        lineView.setBottomTextList(test);
-        lineView.setColorArray(new int[] {
-                Color.parseColor("#F44336"), Color.parseColor("#9C27B0"),
-                Color.parseColor("#2196F3"), Color.parseColor("#009688")
-        });
-        lineView.setDrawDotLine(true);
-        lineView.setShowPopup(LineView.SHOW_POPUPS_NONE);
-    }
-
-    private void randomSet(LineView lineView) {
-        ArrayList<Integer> dataList = new ArrayList<>();
-        float random = (float) (Math.random() * 9 + 1);
-        for (int i = 0; i < randomint; i++) {
-            dataList.add((int) (Math.random() * random));
-        }
-
-        ArrayList<Integer> dataList2 = new ArrayList<>();
-        random = (int) (Math.random() * 9 + 1);
-        for (int i = 0; i < randomint; i++) {
-            dataList2.add((int) (Math.random() * random));
-        }
-
-        ArrayList<Integer> dataList3 = new ArrayList<>();
-        random = (int) (Math.random() * 9 + 1);
-        for (int i = 0; i < randomint; i++) {
-            dataList3.add((int) (Math.random() * random));
-        }
-
-        ArrayList<ArrayList<Integer>> dataLists = new ArrayList<>();
-        dataLists.add(dataList);
-        dataLists.add(dataList2);
-        dataLists.add(dataList3);
-
-        lineView.setDataList(dataLists);
-
-        ArrayList<Float> dataListF = new ArrayList<>();
-        float randomF = (float) (Math.random() * 9 + 1);
-        for (int i = 0; i < randomint; i++) {
-            dataListF.add((float) (Math.random() * randomF));
-        }
-
-        ArrayList<Float> dataListF2 = new ArrayList<>();
-        randomF = (int) (Math.random() * 9 + 1);
-        for (int i = 0; i < randomint; i++) {
-            dataListF2.add((float) (Math.random() * randomF));
-        }
-
-        ArrayList<Float> dataListF3 = new ArrayList<>();
-        randomF = (int) (Math.random() * 9 + 1);
-        for (int i = 0; i < randomint; i++) {
-            dataListF3.add((float) (Math.random() * randomF));
-        }
-
-
-    }
 
 
 

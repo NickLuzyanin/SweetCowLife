@@ -8,14 +8,14 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mts.cow.nikolay.lifeofacow.screen.cowpassport.AddCowPassportActivity">
+    tools:context="com.mts.cow.nikolay.lifeofacow.screen.cowpassportdetails.CowDetailsActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_cow_number"
         android:layout_width="154dp"
         android:layout_height="55dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="44dp"
         android:baselineAligned="false"
 
@@ -25,7 +25,7 @@
         tools:ignore="MissingConstraints">
 
         <AutoCompleteTextView
-            android:id="@+id/input_cow_number"
+            android:id="@+id/cow_number_details"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:editable="false"
@@ -40,9 +40,9 @@
         android:id="@+id/input_layout_poroda"
         android:layout_width="154dp"
         android:layout_height="55dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:baselineAligned="false"
 
         android:visibility="visible"
@@ -51,7 +51,7 @@
         tools:ignore="MissingConstraints">
 
         <AutoCompleteTextView
-            android:id="@+id/input_breed"
+            android:id="@+id/breed_details"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:editable="false"
@@ -66,9 +66,9 @@
         android:id="@+id/input_layout_mast"
         android:layout_width="154dp"
         android:layout_height="55dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:baselineAligned="false"
 
         android:visibility="visible"
@@ -77,7 +77,7 @@
         tools:ignore="MissingConstraints">
 
         <AutoCompleteTextView
-            android:id="@+id/input_suit"
+            android:id="@+id/suit_details"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:editable="false"
@@ -93,8 +93,8 @@
         android:id="@+id/input_layout_birthday"
         android:layout_width="154dp"
         android:layout_height="55dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="44dp"
         android:baselineAligned="false"
 
@@ -104,7 +104,7 @@
         tools:ignore="MissingConstraints">
 
         <AutoCompleteTextView
-            android:id="@+id/input_birthday"
+            android:id="@+id/birthday_details"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:editable="false"
@@ -119,9 +119,9 @@
         android:id="@+id/input_layout_mother"
         android:layout_width="154dp"
         android:layout_height="55dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="12dp"
         android:baselineAligned="false"
 
         android:visibility="visible"
@@ -130,7 +130,7 @@
         tools:ignore="MissingConstraints">
 
         <AutoCompleteTextView
-            android:id="@+id/input_mother"
+            android:id="@+id/mother_details"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:editable="false"
@@ -145,9 +145,9 @@
         android:id="@+id/input_layout_father"
         android:layout_width="154dp"
         android:layout_height="55dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
         android:baselineAligned="false"
 
         android:visibility="visible"
@@ -156,7 +156,7 @@
         tools:ignore="MissingConstraints">
 
         <AutoCompleteTextView
-            android:id="@+id/input_father"
+            android:id="@+id/father_details"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:editable="false"
@@ -167,26 +167,11 @@
 
     </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/save_pass_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="104dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="104dp"
-        android:layout_weight="1"
-        android:text="@string/saveButton_passport"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_layout_mast" />
-
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
-        android:layout_width="362dp"
-        android:layout_height="198dp"
+        android:layout_width="fill_parent"
+        android:layout_height="224dp"
 
         android:layout_alignParentRight="true"
         android:layout_marginBottom="8dp"
@@ -195,8 +180,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/save_pass_button"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/button">
 
         <view
             android:id="@+id/line_view"
@@ -206,6 +190,5 @@
             tools:layout_editor_absoluteX="123dp"
             tools:layout_editor_absoluteY="14dp" />
     </HorizontalScrollView>
-
 
 </android.support.constraint.ConstraintLayout>

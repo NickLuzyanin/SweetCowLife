@@ -17,9 +17,12 @@
 package com.mts.cow.nikolay.lifeofacow.utils;
 
 import android.support.annotation.NonNull;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+
+import dagger.android.support.DaggerFragment;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -41,5 +44,18 @@ public class ActivityUtils {
         transaction.add(frameId, fragment);
         transaction.commit();
     }
+
+    public static void showDialogFragment (@NonNull DialogFragment dialog, @NonNull FragmentManager fragmentManager, DaggerFragment dfrag, @NonNull int requstCODE){
+
+        checkNotNull(dialog);
+        checkNotNull(fragmentManager);
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        dialog.setTargetFragment(dfrag,requstCODE);
+        dialog.show(transaction, "MilkYield");
+
+
+
+    }
+
 
 }

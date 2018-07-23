@@ -1,8 +1,10 @@
 <resources>
+
+    /*Application name*/
     <string name="app_name">Lifeofacow</string>
 
 
-    <string name="nav_header_name">Lifeofacow</string>
+    <string name="nav_header_name">Ферма 4.0</string>
 
     <string name="animallist">Список животных</string>
     <string name="cowpassport">Паспорт коровы</string>
@@ -19,10 +21,10 @@
     /*For ListofCowFragment*/
     <string name="no_newCow">Нет новых коров</string>
 
-    <string name="сow_numberL">Номер коровы</string>
+    <string name="сow_numberL">№Коровы</string>
     <string name="сow_porodaL">Порода</string>
     <string name="сow_mastL">Масть</string>
-    <string name="сow_birthdayL">День рождения</string>
+    <string name="сow_birthdayL">Возраст</string>
     <string name="сow_motherL">Мать</string>
     <string name="сow_fatherL">Отец</string>
 
@@ -35,6 +37,13 @@
     <string name="сow_birthday">День рождения</string>
     <string name="сow_mother">Мать</string>
     <string name="сow_father">Отец</string>
+
+    /*For AddCowMilkYieldFragment*/
+    <string name="milkyield_date">Дата</string>
+    <string name="milkyield">Надой</string>
+    <string name="milkyield_fat_content">Жирность молока</string>
+    <string name="milkyield_weight">Вес коровы</string>
+
 
 
 

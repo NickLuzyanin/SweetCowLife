@@ -54,7 +54,6 @@ public class ListofCowPresenter implements ListofCowContract.Presenter {
                     mCowListView.showCowsFromLocalDB(cows);
                 }
 
-
             }
 
             @Override
