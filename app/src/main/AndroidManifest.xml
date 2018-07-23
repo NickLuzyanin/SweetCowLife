@@ -21,6 +21,15 @@
         </activity>
 
 
+        <activity
+
+            android:name=".screen.cowpassportdetails.CowDetailsActivity"
+            android:label="@string/name_of_AddCowPassportFragment"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+
 
 
         <activity

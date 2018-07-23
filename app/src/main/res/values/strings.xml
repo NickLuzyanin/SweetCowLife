@@ -8,7 +8,8 @@
     <string name="cowpassport">Паспорт коровы</string>
 
     /*For Activities*/
-    <string name="name_of_AddCowPassportFragment">Паспорт коровы</string>
+    <string name="name_of_AddCowPassportFragment">Добавить новый паспорт коровы</string>
+    <string name="name_of_CowDetailsFragment">Паспорт коровы</string>
 
     /*For Buttons*/
     <string name="saveButton_passport">Сохранить паспорт</string>
