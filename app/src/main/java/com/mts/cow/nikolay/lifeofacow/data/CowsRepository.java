@@ -2,6 +2,8 @@ package com.mts.cow.nikolay.lifeofacow.data;
 
 import android.support.annotation.NonNull;
 
+import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +55,33 @@ public class CowsRepository implements CowsDataSource {
     }
 
     @Override
+    public void getCowParams(@NonNull LoadCowParamsCallback callback) {
+
+        checkNotNull(callback);
+
+        mCowsLocalDataSource.getCowParams(new LoadCowParamsCallback() {
+
+            @Override
+            public void onCowsLoaded(List<CowTTX> cows) {
+
+                callback.onCowsLoaded(new ArrayList<>(cows));
+
+            }
+
+            @Override
+            public void onDataNotAvailable() {
+
+                callback.onDataNotAvailable();
+
+            }
+        });
+
+
+
+
+    }
+
+    @Override
     public void getCow(@NonNull String CowId, @NonNull GetTaskCallback callback) {
 
     }
@@ -65,9 +94,14 @@ public class CowsRepository implements CowsDataSource {
 
     }
 
+    @Override
+    public void saveCowParams(@NonNull CowTTX cowParams) {
+
+        checkNotNull(cowParams);
+        mCowsLocalDataSource.saveCowParams(cowParams);
 
 
-
+    }
 
 
     @Override

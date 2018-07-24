@@ -199,7 +199,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <view
-            android:id="@+id/line_view"
+            android:id="@+id/line_view_main"
             class="im.dacer.androidcharts.LineView"
             android:layout_width="wrap_content"
             android:layout_height="200dp"

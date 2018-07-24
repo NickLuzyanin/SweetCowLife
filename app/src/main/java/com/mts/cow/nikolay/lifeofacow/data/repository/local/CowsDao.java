@@ -24,10 +24,6 @@ public interface CowsDao {
     @Query("SELECT * FROM cows_params")
     List<CowTTX> getCowsTTX();
 
-    @Query("SELECT cows_params.cowNumber_id,cows_params.date_milkyield," +
-            "cows_params.fat_content,cows_params.weight FROM cows_params")
-    List<CowWithParams> getCowTTX();
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertCows(Cows cows);
 

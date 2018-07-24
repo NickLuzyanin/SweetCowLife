@@ -14,12 +14,12 @@ import java.util.UUID;
 @Entity(tableName = "cows_params")
 public final class CowTTX {
 
-
+    @PrimaryKey
     @NonNull
     @ColumnInfo(name = "entryid")
     private final String mId;
 
-    @PrimaryKey
+
     @NonNull
     @ColumnInfo(name = "cowNumber_id")
     private final String mCowNumber_id;
@@ -27,6 +27,12 @@ public final class CowTTX {
     @Nullable
     @ColumnInfo(name = "date_milkyield")
     private final String mDate_milkyield;
+
+    @Nullable
+    @ColumnInfo(name = "milkyield")
+    private final String mMilkyield;
+
+
 
     @Nullable
     @ColumnInfo(name = "fat_content")
@@ -46,13 +52,14 @@ public final class CowTTX {
                 @NonNull String id,
                 boolean completed,
                 @Nullable String fat_content,
-                @Nullable String weight) {
+                @Nullable String weight,@Nullable String milkyield) {
         mId = UUID.randomUUID().toString();
         mCowNumber_id = cowNumber_id;
         mDate_milkyield = date_milkyield;
         mCompleted = completed;
         mFat_content = fat_content;
         mWeight = weight;
+        mMilkyield = milkyield;
 
 
     }
@@ -72,6 +79,11 @@ public final class CowTTX {
     @Nullable
     public String getDate_milkyield() {
         return mDate_milkyield;
+    }
+
+    @Nullable
+    public String getMilkyield() {
+        return mMilkyield;
     }
 
     @Nullable

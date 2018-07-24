@@ -43,6 +43,7 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     private AutoCompleteTextView cowMotherAutoCompleteText;
     private AutoCompleteTextView cowFatherAutoCompleteText;
     private Button savePassport;
+    private  LineView lineView;
 
 
 
@@ -102,6 +103,14 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
 
+        String[] cowParams = data.getStringArrayExtra(AddCowMilkYieldFragment.TAG_COW_PARAMS_SELECTED);
+
+        mPresenter.saveCowParams("2345",cowParams[0],cowParams[1],cowParams[2],cowParams[3]);
+        mPresenter.loadCowParams();
+
+
+
+
 
 
     }
@@ -112,6 +121,8 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.addcow_pas_frag, container, false);
+
+        lineView = (LineView) root.findViewById(R.id.line_view_main);
 
        cowNumberAutoCompleteText =root.findViewById(R.id.input_cow_number);
        cowBreedAutoCompleteText =root.findViewById(R.id.input_breed);
@@ -157,6 +168,16 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     public void showCowsList() {
         getActivity().setResult(Activity.RESULT_OK);
         getActivity().finish();
+    }
+
+    @Override
+    public void showCowParamsfromLocalDB(List<CowTTX> cowParams) {
+        mPresenter.initLineView(lineView);
+        mPresenter.cowParamsSet(lineView,cowParams);
+
+
+
+
     }
 
     @Override

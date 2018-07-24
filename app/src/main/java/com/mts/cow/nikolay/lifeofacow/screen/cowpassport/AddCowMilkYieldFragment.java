@@ -52,24 +52,24 @@ public class AddCowMilkYieldFragment extends DialogFragment {
 
 
 
-        AlertDialog.Builder builder1 = builder.setPositiveButton(Positivebutton1, (dialog, id) ->
+        AlertDialog.Builder builder1 = builder.setPositiveButton(Positivebutton1, (dialog, which) -> {
 
-        /*cowttx = new String[]{date.getText().toString(), milkyield.getText().toString(), fat_content.getText().toString(), weight.getText().toString()};
-        Intent intent = new Intent();
-        intent.putExtra(TAG_COW_PARAMS_SELECTED, cowttx);
+            cowttx = new String[]{date.getText().toString(), milkyield.getText().toString(), fat_content.getText().toString(), weight.getText().toString()};
+            Intent intent = new Intent();
+            intent.putExtra(TAG_COW_PARAMS_SELECTED, cowttx);
 
-        getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, intent);*/
+            getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, intent);
 
-        Toast.makeText(getActivity(), "Вы сделали правильный выбор",Toast.LENGTH_LONG).show());
-
-
-
-        builder.setNegativeButton(Negativebutton, (dialog, id) ->
+            Toast.makeText(getActivity(), "Вы внесли достижения коровы",Toast.LENGTH_LONG).show();
+        });
 
 
+        builder.setNegativeButton(Negativebutton, (dialog, id) ->{
 
-                Toast.makeText(getActivity(), "Возможно вы правы", Toast.LENGTH_LONG).show());
-        builder.setCancelable(true);
+            Toast.makeText(getActivity(), "Вы отменили ввод данных о корове", Toast.LENGTH_LONG).show();
+            builder.setCancelable(true);
+
+        });
 
         return builder.create();
     }

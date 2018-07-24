@@ -10,6 +10,8 @@ import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
 import java.util.ArrayList;
 import java.util.List;
 
+import im.dacer.androidcharts.LineView;
+
 public interface AddCowPassportContract {
 
 
@@ -18,9 +20,13 @@ public interface AddCowPassportContract {
         void showCowGraph(List<Integer> cowParams);
         void showCowsList();
 
+        void showCowParamsfromLocalDB(List<CowTTX> cowParams);
+
         void setTitle(String title);
 
         void setDescription(String description);
+
+
 
         boolean isActive();
 
@@ -32,8 +38,13 @@ public interface AddCowPassportContract {
     interface Presenter extends BasePresenter<View> {
 
         void saveCow(String cowNumber, String cowBreed, String cowSuit,String birthDay,String mother,String father,boolean state);
+        void saveCowParams (String cowNumber, String milkyielddate, String milkyield,String fat_content, String weight);
+        void loadCowParams();
         void getCowGraphParams();
         void getStreetList();
+
+        void initLineView(LineView lineView);
+        void cowParamsSet(LineView lineView, List<CowTTX> cowParams);
 
 
 
