@@ -96,13 +96,6 @@ public class CowDetailsFragment extends DaggerFragment implements CowDetailsCont
 
         //fab.setOnClickListener(v -> mPresenter.editNewCowPassport());
 
-
-        /*final LineView lineView = (LineView) root.findViewById(R.id.line_view);
-
-        initLineView(lineView);
-
-        randomSet(lineView);*/
-
         return root;
     }
 

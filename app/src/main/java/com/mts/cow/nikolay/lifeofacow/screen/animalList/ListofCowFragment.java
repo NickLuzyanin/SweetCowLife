@@ -97,13 +97,6 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
 
 
 
-
-
-
-
-
-
-
     @Override
     public void showCowPassport() {
         Intent intent = new Intent(getContext(),AddCowPassportActivity.class);
@@ -143,9 +136,11 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
 
 
 
+
         public CowAdapter(List<Cows> cows) {
 
             this.Listcows = cows;
+
         }
 
         @Override
@@ -159,10 +154,19 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
         @Override
         public void onBindViewHolder(CowAdapter.ViewHolder holder, int position) {
             Cows listcows = Listcows.get(position);
+
+            //Костыль обыкновенный - быстрый)
+            int birthDay =Integer.parseInt(listcows.getBirthDay());
+            int Agen = 2018 - birthDay;
+            String Age = Integer.toString(Agen);
+
+
             holder.mCowNumber.setText(listcows.getCowNumber());
             holder.mCowBreed.setText(listcows.getBreed());
             holder.mCowSuit.setText(listcows.getSuit());
-            holder.mCowBirthDay.setText(listcows.getBirthDay());
+
+
+            holder.mCowBirthDay.setText(Age);
 
 
         }
@@ -188,8 +192,6 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
                 mCowBreed = itemView.findViewById(R.id.textView_сow_BreedLL);
                 mCowSuit = itemView.findViewById(R.id.textView_сow_SuitLL);
                 mCowBirthDay = itemView.findViewById(R.id.textView_сow_age);
-
-
 
 
             }

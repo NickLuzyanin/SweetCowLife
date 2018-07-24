@@ -7,6 +7,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.mts.cow.nikolay.lifeofacow.R;
@@ -34,7 +35,7 @@ public class ListofCowActivity extends DaggerAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cowlist_act);
 
-        ActionBar ab = getSupportActionBar();
+        /*ActionBar ab = getSupportActionBar();
         ab.setHomeAsUpIndicator(R.drawable.ic_menu);
         ab.setDisplayHomeAsUpEnabled(true);
 
@@ -45,7 +46,8 @@ public class ListofCowActivity extends DaggerAppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         if (navigationView != null) {
             setNavDrawerContent(navigationView);
-        }
+        }*/
+
         ListofCowFragment tasksFragment =
                 (ListofCowFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
         if (tasksFragment == null) {
@@ -54,13 +56,6 @@ public class ListofCowActivity extends DaggerAppCompatActivity {
             ActivityUtils.addFragmentToActivity(
                     getSupportFragmentManager(), tasksFragment, R.id.contentFrame);
         }
-
-
-
-
-
-
-
 
 
     }

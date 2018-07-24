@@ -21,7 +21,7 @@ import im.dacer.androidcharts.LineView;
 
 public class AddCowPassportPresenter implements AddCowPassportContract.Presenter, CowsDataSource.GetTaskCallback {
 
-    private static final int randomint = 9;
+    private static final int randomint = 30;
 
     @NonNull
     private final CowsDataSource mCowsRepository;
@@ -71,7 +71,7 @@ public class AddCowPassportPresenter implements AddCowPassportContract.Presenter
 
 
     private void createCowParams(String cowNumber, String milkyielddate, String milkyield, String fat_content, String weight) {
-        CowTTX newCowParams = new CowTTX(cowNumber,milkyielddate,"2",true,fat_content,milkyield,weight);
+        CowTTX newCowParams = new CowTTX(cowNumber,milkyielddate,"2",true,fat_content,weight,milkyield);
         if (newCowParams.isEmpty()) {
             if (mAddCowView != null) {
                 // mAddCowView.showEmptyTaskError();
@@ -152,7 +152,7 @@ public class AddCowPassportPresenter implements AddCowPassportContract.Presenter
 
         ArrayList<String> test = new ArrayList<String>();
         for (int i = 0; i < randomint; i++) {
-            test.add(String.valueOf(i + 1));
+            test.add(String.valueOf(i)+"\".02.2001\"");
         }
         lineView.setBottomTextList(test);
         lineView.setColorArray(new int[] {
@@ -174,28 +174,21 @@ public class AddCowPassportPresenter implements AddCowPassportContract.Presenter
             cowDataParams.add(Integer.parseInt(cowParams.get(i).getMilkyield()));
         }
 
-        ArrayList<Integer> dataList = new ArrayList<>();
-        float random = (float) (Math.random() * 9 + 1);
-        for (int i = 0; i < randomint; i++) {
-            dataList.add((int) (Math.random() * random));
+        ArrayList<Integer> cowWeightParams = new ArrayList<>();
+        for (int i = 0; i < cowParams.size(); i++) {
+            cowWeightParams.add(Integer.parseInt(cowParams.get(i).getWeight()));
         }
 
-        ArrayList<Integer> dataList2 = new ArrayList<>();
-        random = (int) (Math.random() * 9 + 1);
-        for (int i = 0; i < randomint; i++) {
-            dataList2.add((int) (Math.random() * random));
+        ArrayList<Integer> cowFatContentParams = new ArrayList<>();
+        for (int i = 0; i < cowParams.size(); i++) {
+            cowFatContentParams.add(Integer.parseInt(cowParams.get(i).getFat_content()));
         }
 
-        ArrayList<Integer> dataList3 = new ArrayList<>();
-        random = (int) (Math.random() * 9 + 1);
-        for (int i = 0; i < randomint; i++) {
-            dataList3.add((int) (Math.random() * random));
-        }
 
         ArrayList<ArrayList<Integer>> dataLists = new ArrayList<>();
         dataLists.add(cowDataParams);
-        //dataLists.add(dataList2);
-        //dataLists.add(dataList3);
+        dataLists.add(cowWeightParams);
+        dataLists.add(cowFatContentParams);
 
         lineView.setDataList(dataLists);
 
@@ -219,8 +212,8 @@ public class AddCowPassportPresenter implements AddCowPassportContract.Presenter
 
         ArrayList<ArrayList<Float>> dataListFs = new ArrayList<>();
         dataListFs.add(dataListF);
-        //dataListFs.add(dataListF2);
-        //dataListFs.add(dataListF3);
+        dataListFs.add(dataListF2);
+        dataListFs.add(dataListF3);
 
 
 
