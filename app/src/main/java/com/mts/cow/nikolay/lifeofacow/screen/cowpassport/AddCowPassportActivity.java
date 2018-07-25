@@ -1,6 +1,9 @@
 package com.mts.cow.nikolay.lifeofacow.screen.cowpassport;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.mts.cow.nikolay.lifeofacow.R;
@@ -30,6 +33,11 @@ public class AddCowPassportActivity extends DaggerAppCompatActivity {
     String mCowId;
 
     private boolean mIsDataMissing = true;
+
+    public static void start(@NonNull Activity activity) {
+        Intent intent = new Intent(activity, AddCowPassportActivity.class);
+        activity.startActivity(intent);
+    }
 
 
     @Override

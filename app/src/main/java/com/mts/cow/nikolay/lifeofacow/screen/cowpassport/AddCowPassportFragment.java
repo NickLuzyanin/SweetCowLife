@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 
@@ -141,6 +142,9 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
                    cowFatherAutoCompleteText.getText().toString(),false);
 
        });
+
+        Intent intent = new Intent();
+        String[] ArrayCowList = intent.getStringArrayExtra("ArrayCowList");
 
 
 

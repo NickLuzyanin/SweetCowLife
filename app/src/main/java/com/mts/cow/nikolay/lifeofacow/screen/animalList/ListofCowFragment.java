@@ -35,6 +35,13 @@ import dagger.android.support.DaggerFragment;
 @ActivityScoped
 public class ListofCowFragment extends DaggerFragment implements ListofCowContract.View {
 
+
+    public interface RvClickListener{
+
+        void OnClick(View view, int position, boolean isLongClick);
+
+    }
+
     @Inject
     ListofCowContract.Presenter mPresenter;
 
@@ -71,6 +78,9 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         mPresenter.result(requestCode, resultCode);
     }
+
+
+
 
 
 
@@ -112,7 +122,7 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
     public void showCowsFromLocalDB(List<Cows> cows) {
 
         //Сюда прилетит лист объектов Cow из нашей базы "cows"
-        mCowadapter = new CowAdapter(cows);
+        mCowadapter = new CowAdapter(cows,getContext());
         listCows.setAdapter(mCowadapter);
 
 
@@ -128,18 +138,20 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
     }
 
 
-    private class CowAdapter extends RecyclerView.Adapter<CowAdapter.ViewHolder>{
+    private class CowAdapter extends RecyclerView.Adapter<CowAdapter.ViewHolder> implements View.OnClickListener{
 
 
         private List<Cows> Listcows;
+        Context context;
 
 
 
 
 
-        public CowAdapter(List<Cows> cows) {
+        public CowAdapter(List<Cows> cows, Context context) {
 
             this.Listcows = cows;
+            this.context = context;
 
         }
 
@@ -164,9 +176,23 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
             holder.mCowNumber.setText(listcows.getCowNumber());
             holder.mCowBreed.setText(listcows.getBreed());
             holder.mCowSuit.setText(listcows.getSuit());
-
-
             holder.mCowBirthDay.setText(Age);
+            holder.cv.setOnClickListener(v -> {
+
+                String[]arrayListCow = new String[]{
+                        listcows.getCowNumber(),
+                        listcows.getBreed(),
+                        listcows.getSuit(),
+                        listcows.getBirthDay(),
+                        listcows.getFather(),
+                        listcows.getMother()};
+
+                Intent intent = new Intent(context, AddCowPassportActivity.class);
+                intent.putExtra("ArrayCowList", arrayListCow);
+                context.startActivity(intent);
+                //finish();
+
+            });
 
 
         }
@@ -174,6 +200,11 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
         @Override
         public int getItemCount() {
             return Listcows.size();
+        }
+
+        @Override
+        public void onClick(View v) {
+
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
@@ -192,6 +223,8 @@ public class ListofCowFragment extends DaggerFragment implements ListofCowContra
                 mCowBreed = itemView.findViewById(R.id.textView_сow_BreedLL);
                 mCowSuit = itemView.findViewById(R.id.textView_сow_SuitLL);
                 mCowBirthDay = itemView.findViewById(R.id.textView_сow_age);
+
+
 
 
             }
