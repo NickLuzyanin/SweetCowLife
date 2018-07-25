@@ -28,6 +28,8 @@ public class AddCowPassportActivity extends DaggerAppCompatActivity {
     @Inject
     AddCowPassportFragment mFragment;
 
+    private static String[] ArrayCowList;
+
     @Inject
     @Nullable
     String mCowId;
@@ -37,6 +39,10 @@ public class AddCowPassportActivity extends DaggerAppCompatActivity {
     public static void start(@NonNull Activity activity) {
         Intent intent = new Intent(activity, AddCowPassportActivity.class);
         activity.startActivity(intent);
+
+        String[] ArrayCowList2 = intent.getStringArrayExtra("ArrayCowList");
+        ArrayCowList = ArrayCowList2;
+
     }
 
 
@@ -44,6 +50,8 @@ public class AddCowPassportActivity extends DaggerAppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addcow_pas_act);
+
+
 
 
         AddCowPassportFragment addCowPassportFragment =

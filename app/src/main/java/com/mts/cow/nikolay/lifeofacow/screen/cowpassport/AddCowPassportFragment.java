@@ -68,6 +68,8 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
         super.onResume();
         mPresenter.takeView(this);
 
+
+
     }
 
     @Override
@@ -110,10 +112,6 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
         mPresenter.loadCowParams();
 
 
-
-
-
-
     }
 
 
@@ -132,19 +130,15 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
        cowMotherAutoCompleteText=root.findViewById(R.id.input_mother);
        cowFatherAutoCompleteText=root.findViewById(R.id.input_father);
        savePassport=root.findViewById(R.id.save_pass_button);
-       savePassport.setOnClickListener(v -> {
-
-           mPresenter.saveCow(cowNumberAutoCompleteText.getText().toString(),
+       savePassport.setOnClickListener(v ->
+               mPresenter.saveCow(cowNumberAutoCompleteText.getText().toString(),
                    cowBreedAutoCompleteText.getText().toString(),
                    cowSuitAutoCompleteText.getText().toString(),
                    cowBirthDayAutoCompleteText.getText().toString(),
                    cowMotherAutoCompleteText.getText().toString(),
-                   cowFatherAutoCompleteText.getText().toString(),false);
+                   cowFatherAutoCompleteText.getText().toString(),false));
 
-       });
 
-        Intent intent = new Intent();
-        String[] ArrayCowList = intent.getStringArrayExtra("ArrayCowList");
 
 
 
