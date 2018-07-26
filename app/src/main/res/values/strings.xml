@@ -39,10 +39,10 @@
     <string name="сow_father">Отец</string>
 
     /*For AddCowMilkYieldFragment*/
-    <string name="milkyield_date">Дата</string>
-    <string name="milkyield">Надой</string>
-    <string name="milkyield_fat_content">Жирность молока</string>
-    <string name="milkyield_weight">Вес коровы</string>
+    <string name="milkyield_date">Дата, dd mm yyyy</string>
+    <string name="milkyield">Надой, л/сут</string>
+    <string name="milkyield_fat_content">Жирность молока,% </string>
+    <string name="milkyield_weight">Вес коровы, кг</string>
 
 
 
