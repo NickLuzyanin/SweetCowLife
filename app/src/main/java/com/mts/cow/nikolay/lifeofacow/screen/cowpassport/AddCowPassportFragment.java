@@ -9,9 +9,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -45,6 +48,7 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     private AutoCompleteTextView cowFatherAutoCompleteText;
     private Button savePassport;
     private  LineView lineView;
+    ArrayAdapter<String> adapter;
 
 
 
@@ -67,6 +71,61 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     public void onResume() {
         super.onResume();
         mPresenter.takeView(this);
+        cowBreedAutoCompleteText.addTextChangedListener(new TextWatcher() {
+
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable cityRequest) {
+
+                if (cityRequest.toString().length()>= 4){
+
+                    adapter = new ArrayAdapter<String>(getContext(),R.layout.support_simple_spinner_dropdown_item, getResources().getStringArray(R.array.cow_breed_array));
+                    cowBreedAutoCompleteText.setAdapter(adapter);
+
+                }
+
+
+            }
+        });
+
+
+        cowSuitAutoCompleteText.addTextChangedListener(new TextWatcher() {
+
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable cityRequest) {
+
+                if (cityRequest.toString().length()>= 4){
+
+                    adapter = new ArrayAdapter<String>(getContext(),R.layout.support_simple_spinner_dropdown_item, getResources().getStringArray(R.array.cow_suit_array));
+                    cowSuitAutoCompleteText.setAdapter(adapter);
+
+                }
+
+
+            }
+        });
+
 
 
 

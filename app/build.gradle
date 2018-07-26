@@ -58,6 +58,9 @@ dependencies {
 
     implementation 'im.dacer:AndroidCharts:1.0.4'
 
+    //DatePicker
+    compile 'com.github.drawers:SpinnerDatePicker:1.0.6'
+
 
 
 

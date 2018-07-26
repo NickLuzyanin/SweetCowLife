@@ -16,8 +16,16 @@ import android.widget.Toast;
 
 import com.mts.cow.nikolay.lifeofacow.R;
 import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
+import com.tsongkha.spinnerdatepicker.DatePicker;
+import com.tsongkha.spinnerdatepicker.DatePickerDialog;
+import com.tsongkha.spinnerdatepicker.SpinnerDatePickerDialogBuilder;
 
-public class AddCowMilkYieldFragment extends DialogFragment {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+
+public class AddCowMilkYieldFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
     public static final String TAG_COW_PARAMS_SELECTED = "cow_params";
 
@@ -26,6 +34,7 @@ public class AddCowMilkYieldFragment extends DialogFragment {
     AutoCompleteTextView fat_content;
     AutoCompleteTextView weight;
     String[] cowttx;
+    SimpleDateFormat simpleDateFormat;
 
     @NonNull
     @Override
@@ -43,8 +52,13 @@ public class AddCowMilkYieldFragment extends DialogFragment {
 
 
         builder.setTitle(title);  // заголовок
+        simpleDateFormat = new SimpleDateFormat("dd MM yyyy", Locale.US);
+
+
+
 
         date = view.findViewById(R.id.add_date_milkyield);
+        date.setOnClickListener(v -> showDate(2013, 0, 1, R.style.NumberPickerStyle));
         milkyield = view.findViewById(R.id.add_milkyield);
         fat_content = view.findViewById(R.id.add_fat_content);
         weight = view.findViewById(R.id.add_weight);
@@ -75,5 +89,22 @@ public class AddCowMilkYieldFragment extends DialogFragment {
     }
 
 
+    void showDate(int year, int monthOfYear, int dayOfMonth, int spinnerTheme) {
+        new SpinnerDatePickerDialogBuilder()
+                .context(getContext())
+                .callback(AddCowMilkYieldFragment.this)
+                .spinnerTheme(spinnerTheme)
+                .defaultDate(year, monthOfYear, dayOfMonth)
+                .build()
+                .show();
+    }
 
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+        Calendar calendar = new GregorianCalendar(year, monthOfYear, dayOfMonth);
+        date.setText(simpleDateFormat.format(calendar.getTime()));
+
+    }
 }

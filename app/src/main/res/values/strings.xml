@@ -53,7 +53,38 @@
     <string name="loading_cows_error">База данных пуста</string>
 
 
+    /*Local Strings resource*/
+    <string-array name="cow_breed_array">
 
+        <item>Голштинская</item>
+        <item>Симментальская</item>
+        <item>Айширская</item>
+        <item>Джейсерская</item>
+        <item>Швицкая</item>
+        <item>Холмогорская</item>
+        <item>Ярославская</item>
+        <item>Костромская</item>
+        <item>Голштино-фризская</item>
+        <item>Тагильская</item>
+        <item>Бурая латвийская</item>
+        <item>Красная степная</item>
+        <item>Голландские</item>
+        <item>Черно-пестрая</item>
+        <item>Герефордская</item>
+        <item>Бельгийская</item>
+
+    </string-array>
+
+
+    <string-array name="cow_suit_array">
+
+        <item>Черная</item>
+        <item>Бурая</item>
+        <item>Темно-красная</item>
+        <item>Желтая</item>
+        <item>Белая</item>
+
+    </string-array>
 
 
 </resources>
