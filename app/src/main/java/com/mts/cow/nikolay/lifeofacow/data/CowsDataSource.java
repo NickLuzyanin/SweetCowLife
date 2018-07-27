@@ -3,6 +3,7 @@ package com.mts.cow.nikolay.lifeofacow.data;
 import android.support.annotation.NonNull;
 
 import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
+import com.mts.cow.nikolay.lifeofacow.models.Cows;
 
 import java.util.List;
 

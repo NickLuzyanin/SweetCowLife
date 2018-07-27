@@ -1,10 +1,9 @@
 package com.mts.cow.nikolay.lifeofacow.screen.cowpassportdetails;
 
 
-import com.mts.cow.nikolay.lifeofacow.data.Cows;
+import com.mts.cow.nikolay.lifeofacow.models.Cows;
 import com.mts.cow.nikolay.lifeofacow.data.CowsDataSource;
 import com.mts.cow.nikolay.lifeofacow.data.CowsRepository;
-import com.mts.cow.nikolay.lifeofacow.screen.animalList.ListofCowContract;
 
 import java.util.List;
 

@@ -4,14 +4,13 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.mts.cow.nikolay.lifeofacow.data.Cows;
+import com.mts.cow.nikolay.lifeofacow.models.Cows;
 import com.mts.cow.nikolay.lifeofacow.data.CowsDataSource;
 import com.mts.cow.nikolay.lifeofacow.data.CowsRepository;
 import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import javax.inject.Inject;
 

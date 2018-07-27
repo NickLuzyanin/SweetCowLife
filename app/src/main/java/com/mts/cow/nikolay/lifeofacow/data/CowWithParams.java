@@ -4,6 +4,7 @@ import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Relation;
 
 import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
+import com.mts.cow.nikolay.lifeofacow.models.Cows;
 
 import java.util.List;
 

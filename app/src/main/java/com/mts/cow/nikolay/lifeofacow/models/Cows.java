@@ -1,4 +1,4 @@
-package com.mts.cow.nikolay.lifeofacow.data;
+package com.mts.cow.nikolay.lifeofacow.models;
 
 
 import android.arch.persistence.room.ColumnInfo;

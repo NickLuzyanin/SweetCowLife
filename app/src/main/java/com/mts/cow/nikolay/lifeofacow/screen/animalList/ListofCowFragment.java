@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mts.cow.nikolay.lifeofacow.R;
-import com.mts.cow.nikolay.lifeofacow.data.Cows;
+import com.mts.cow.nikolay.lifeofacow.models.Cows;
 import com.mts.cow.nikolay.lifeofacow.di.ActivityScoped;
 import com.mts.cow.nikolay.lifeofacow.screen.cowpassport.AddCowPassportActivity;
 

@@ -142,19 +142,8 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
-        /*CowTTX Cowttx = new CowTTX();
-        Cowttx.setMilk_yield("100");
-        Cowttx.setFat_content("25");
-        Cowttx.setWeight("800");
-
-        List<CowTTX> cowttx = new ArrayList<CowTTX>();
-        cowttx.add(Cowttx);*/
-
-
-
         FloatingActionButton fab = getActivity().findViewById(R.id.fab_edit_cow_pass);
-        fab.setImageResource(R.drawable.ic_done);
+        fab.setImageResource(R.drawable.ic_add_graph);
         fab.setOnClickListener(v -> {
             ActivityUtils.showDialogFragment(new AddCowMilkYieldFragment(),getFragmentManager(),this,REQUEST_COW_PARAMS);
         });

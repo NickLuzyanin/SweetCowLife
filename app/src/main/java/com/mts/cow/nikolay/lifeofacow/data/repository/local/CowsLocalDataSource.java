@@ -2,7 +2,7 @@ package com.mts.cow.nikolay.lifeofacow.data.repository.local;
 
 import android.support.annotation.NonNull;
 
-import com.mts.cow.nikolay.lifeofacow.data.Cows;
+import com.mts.cow.nikolay.lifeofacow.models.Cows;
 import com.mts.cow.nikolay.lifeofacow.data.CowsDataSource;
 import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
 import com.mts.cow.nikolay.lifeofacow.utils.AppExecutors;
