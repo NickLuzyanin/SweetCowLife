@@ -27,6 +27,7 @@ import android.widget.ProgressBar;
 
 import com.mts.cow.nikolay.lifeofacow.R;
 import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
+import com.mts.cow.nikolay.lifeofacow.utils.ActivityUtils;
 
 
 import java.util.List;
@@ -149,11 +150,11 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
 
 
 
-        /*FloatingActionButton fab = getActivity().findViewById(R.id.fab_edit_cow_pass);
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab_edit_cow_pass);
         fab.setImageResource(R.drawable.ic_add_graph);
         fab.setOnClickListener(v -> {
             ActivityUtils.showDialogFragment(new AddCowMilkYieldFragment(),getFragmentManager(),this,REQUEST_COW_PARAMS);
-        });*/
+        });
 
     }
 
