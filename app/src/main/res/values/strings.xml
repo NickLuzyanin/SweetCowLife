@@ -17,6 +17,10 @@
     <string name="saveButton_passport">Сохранить паспорт</string>
 
 
+    /*For SplashScreen*/
+    <string name="splashScreen_text">Ты знаешь,что можешь помочь корове</string>
+
+
 
     /*For ListofCowFragment*/
     <string name="no_newCow">Нет новых коров</string>
@@ -85,6 +89,9 @@
         <item>Белая</item>
 
     </string-array>
+
+    /*For FloatingActionButton*/
+    <string name="lorem_ipsum">Кнопхи</string>
 
 
 </resources>

@@ -3,14 +3,20 @@ package com.mts.cow.nikolay.lifeofacow.screen.cowpassport;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+
+import android.support.annotation.Nullable;
+
+
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.content.res.AppCompatResources;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +27,8 @@ import android.widget.ProgressBar;
 
 import com.mts.cow.nikolay.lifeofacow.R;
 import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
-import com.mts.cow.nikolay.lifeofacow.utils.ActivityUtils;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -49,9 +54,6 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     private Button savePassport;
     private  LineView lineView;
     ArrayAdapter<String> adapter;
-
-
-
 
 
 
@@ -142,11 +144,16 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        FloatingActionButton fab = getActivity().findViewById(R.id.fab_edit_cow_pass);
+
+
+
+
+
+        /*FloatingActionButton fab = getActivity().findViewById(R.id.fab_edit_cow_pass);
         fab.setImageResource(R.drawable.ic_add_graph);
         fab.setOnClickListener(v -> {
             ActivityUtils.showDialogFragment(new AddCowMilkYieldFragment(),getFragmentManager(),this,REQUEST_COW_PARAMS);
-        });
+        });*/
 
     }
 
@@ -170,6 +177,7 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
         View root = inflater.inflate(R.layout.addcow_pas_frag, container, false);
 
         lineView = (LineView) root.findViewById(R.id.line_view_main);
+
 
        cowNumberAutoCompleteText =root.findViewById(R.id.input_cow_number);
        cowBreedAutoCompleteText =root.findViewById(R.id.input_breed);
@@ -250,4 +258,6 @@ public class AddCowPassportFragment extends DaggerFragment implements AddCowPass
     public void removeWait() {
 
     }
+
+
 }
