@@ -11,7 +11,7 @@
     <style name="Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
 
-    /*For CordView*/
+    /*For CardView*/
     <style name="MyCardViewStyle" parent="Theme.AppCompat.Light">
         <item name="cardCornerRadius">5dp</item>
         <item name="cardElevation">2dp</item>
@@ -20,6 +20,22 @@
         <item name="contentPaddingLeft">10dp</item>
         <item name="contentPaddingRight">10dp</item>
         <item name="cardBackgroundColor">@color/LightLightBlue</item>
+    </style>
+
+    /*For DatePicker*/
+
+    <style name="NumberPickerStyle">
+        <item name="android:textSize">22dp</item>
+        <item name="android:textColorPrimary">@color/colorAccent</item>
+
+    </style>
+
+
+
+    <style name="FloatingActionButton.Mini">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_margin">8dp</item>
     </style>
 
 </resources>

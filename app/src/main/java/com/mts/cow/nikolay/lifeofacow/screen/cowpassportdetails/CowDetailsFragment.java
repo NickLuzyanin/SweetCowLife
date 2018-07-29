@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mts.cow.nikolay.lifeofacow.R;
-import com.mts.cow.nikolay.lifeofacow.data.Cows;
+import com.mts.cow.nikolay.lifeofacow.models.Cows;
 import com.mts.cow.nikolay.lifeofacow.di.ActivityScoped;
 
 import java.util.ArrayList;
@@ -95,13 +95,6 @@ public class CowDetailsFragment extends DaggerFragment implements CowDetailsCont
         FloatingActionButton fab = getActivity().findViewById(R.id.fab_edit_cow);
 
         //fab.setOnClickListener(v -> mPresenter.editNewCowPassport());
-
-
-        /*final LineView lineView = (LineView) root.findViewById(R.id.line_view);
-
-        initLineView(lineView);
-
-        randomSet(lineView);*/
 
         return root;
     }

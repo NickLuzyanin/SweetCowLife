@@ -17,6 +17,10 @@
     <string name="saveButton_passport">Сохранить паспорт</string>
 
 
+    /*For SplashScreen*/
+    <string name="splashScreen_text">Ты знаешь,что можешь помочь корове</string>
+
+
 
     /*For ListofCowFragment*/
     <string name="no_newCow">Нет новых коров</string>
@@ -34,15 +38,15 @@
     <string name="сow_number">Номер коровы</string>
     <string name="сow_poroda">Порода</string>
     <string name="сow_mast">Масть</string>
-    <string name="сow_birthday">День рождения</string>
+    <string name="сow_birthday">Год рождения</string>
     <string name="сow_mother">Мать</string>
     <string name="сow_father">Отец</string>
 
     /*For AddCowMilkYieldFragment*/
-    <string name="milkyield_date">Дата</string>
-    <string name="milkyield">Надой</string>
-    <string name="milkyield_fat_content">Жирность молока</string>
-    <string name="milkyield_weight">Вес коровы</string>
+    <string name="milkyield_date">Дата, dd mm yyyy</string>
+    <string name="milkyield">Надой, л/сут</string>
+    <string name="milkyield_fat_content">Жирность молока,% </string>
+    <string name="milkyield_weight">Вес коровы, кг</string>
 
 
 
@@ -53,7 +57,41 @@
     <string name="loading_cows_error">База данных пуста</string>
 
 
+    /*Local Strings resource*/
+    <string-array name="cow_breed_array">
 
+        <item>Голштинская</item>
+        <item>Симментальская</item>
+        <item>Айширская</item>
+        <item>Джейсерская</item>
+        <item>Швицкая</item>
+        <item>Холмогорская</item>
+        <item>Ярославская</item>
+        <item>Костромская</item>
+        <item>Голштино-фризская</item>
+        <item>Тагильская</item>
+        <item>Бурая латвийская</item>
+        <item>Красная степная</item>
+        <item>Голландские</item>
+        <item>Черно-пестрая</item>
+        <item>Герефордская</item>
+        <item>Бельгийская</item>
+
+    </string-array>
+
+
+    <string-array name="cow_suit_array">
+
+        <item>Черная</item>
+        <item>Бурая</item>
+        <item>Темно-красная</item>
+        <item>Желтая</item>
+        <item>Белая</item>
+
+    </string-array>
+
+    /*For FloatingActionButton*/
+    <string name="lorem_ipsum">Кнопхи</string>
 
 
 </resources>

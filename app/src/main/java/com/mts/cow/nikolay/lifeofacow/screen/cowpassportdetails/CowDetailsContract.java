@@ -2,7 +2,7 @@ package com.mts.cow.nikolay.lifeofacow.screen.cowpassportdetails;
 
 import com.mts.cow.nikolay.lifeofacow.common.BasePresenter;
 import com.mts.cow.nikolay.lifeofacow.common.BaseView;
-import com.mts.cow.nikolay.lifeofacow.data.Cows;
+import com.mts.cow.nikolay.lifeofacow.models.Cows;
 
 import java.util.List;
 

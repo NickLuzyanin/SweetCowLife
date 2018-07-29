@@ -7,7 +7,8 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.mts.cow.nikolay.lifeofacow.data.Cows;
+import com.mts.cow.nikolay.lifeofacow.models.Cows;
+import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
 
 import java.util.List;
 
@@ -15,30 +16,38 @@ import java.util.List;
 public interface CowsDao {
 
 
-    /**
-     * Select all tasks from the tasks table.
-     *
-     * @return all tasks.
-     */
     @Query("SELECT * FROM cows")
     List<Cows> getCows();
+
+    @Query("SELECT * FROM cows_params")
+    List<CowTTX> getCowsTTX();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertCows(Cows cows);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+     void insertCowsTTX(CowTTX cowttx);
+
+
+
+
+
 
     /**
      * Select a task by id.
      *
-     * @param taskId the task id.
+     * @param cowsId the task id.
      * @return the task with taskId.
      */
-    @Query("SELECT * FROM Cows WHERE entryid = :taskId")
-    Cows getCowsById(String taskId);
+    @Query("SELECT * FROM Cows WHERE entryid = :cowsId")
+    Cows getCowsById(String cowsId);
 
     /**
      * Insert a task in the database. If the task already exists, replace it.
      *
      * @param task the task to be inserted.
      */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertCows(Cows task);
+
 
     /**
      * Update a task.

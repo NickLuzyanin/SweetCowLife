@@ -1,61 +1,138 @@
 package com.mts.cow.nikolay.lifeofacow.models;
 
+
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
-
-public class CowTTX {
-
-
-
-  private String date;
-
-  private String milk_yield;
-
-  private String fat_content;
-
-  private String weight;
+import android.support.annotation.Nullable;
+import com.google.common.base.Objects;
+import com.google.common.base.Strings;
+import java.util.UUID;
 
 
+@Entity(tableName = "cows_params")
+public final class CowTTX {
 
-  public CowTTX(@NonNull String date,@NonNull String milk_yield, @NonNull String fat_content, @NonNull String weight){
+    @PrimaryKey
+    @NonNull
+    @ColumnInfo(name = "entryid")
+    private final String mId;
 
 
-      this.date=date;
-      this.milk_yield=milk_yield;
-      this.fat_content=fat_content;
-      this.weight=weight;
+    @NonNull
+    @ColumnInfo(name = "cowNumber_id")
+    private final String mCowNumber_id;
+
+    @Nullable
+    @ColumnInfo(name = "date_milkyield")
+    private final String mDate_milkyield;
+
+    @Nullable
+    @ColumnInfo(name = "milkyield")
+    private final String mMilkyield;
+
+
+
+    @Nullable
+    @ColumnInfo(name = "fat_content")
+    private final String mFat_content;
+
+    @Nullable
+    @ColumnInfo(name = "weight")
+    private final String mWeight;
+
+
+    @ColumnInfo(name = "completed")
+    private final boolean mCompleted;
+
+
+    public CowTTX(@Nullable String cowNumber_id,
+                @Nullable String date_milkyield,
+                @NonNull String id,
+                boolean completed,
+                @Nullable String fat_content,
+                @Nullable String weight,@Nullable String milkyield) {
+        mId = UUID.randomUUID().toString();
+        mCowNumber_id = cowNumber_id;
+        mDate_milkyield = date_milkyield;
+        mCompleted = completed;
+        mFat_content = fat_content;
+        mWeight = weight;
+        mMilkyield = milkyield;
+
 
     }
 
-
-    public String getMilk_yield() {
-        return milk_yield;
+    @NonNull
+    public String getId() {
+        return mId;
     }
 
-    public void setMilk_yield(String milk_yield) {
-        this.milk_yield = milk_yield;
+    @Nullable
+    public String getCowNumber_id() {
+        return mCowNumber_id;
     }
 
+
+
+    @Nullable
+    public String getDate_milkyield() {
+        return mDate_milkyield;
+    }
+
+    @Nullable
+    public String getMilkyield() {
+        return mMilkyield;
+    }
+
+    @Nullable
     public String getFat_content() {
-        return fat_content;
+        return mFat_content;
     }
 
-    public void setFat_content(String fat_content) {
-        this.fat_content = fat_content;
-    }
-
+    @Nullable
     public String getWeight() {
-        return weight;
+        return mWeight;
     }
 
-    public void setWeight(String weight) {
-        this.weight = weight;
+
+    public boolean isCompleted() {
+        return mCompleted;
     }
 
-    public String getDate() {
-        return date;
+    public boolean isActive() {
+        return !mCompleted;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public boolean isEmpty() {
+        return Strings.isNullOrEmpty(mCowNumber_id) &&
+                Strings.isNullOrEmpty(mDate_milkyield);
     }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cows cow = (Cows) o;
+        return Objects.equal(mId, cow.mId) &&
+                Objects.equal(mCowNumber, cow.mCowNumber) &&
+                Objects.equal(mBreed, cow.mBreed);
+    }*/
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(mId, mCowNumber_id, mDate_milkyield);
+    }
+
+    /*@Override
+    public String toString() {
+        return "Task with title " + mCowNumber;
+    }*/
+
+
+
 }
+
+
+

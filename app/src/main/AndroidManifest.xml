@@ -22,18 +22,18 @@
 
         <activity
 
-            android:name=".screen.cowpassportdetails.CowDetailsActivity"
-            android:label="@string/name_of_AddCowPassportFragment"
-            android:screenOrientation="portrait">
-
-        </activity>
-
-        <activity
-
             android:name=".screen.animalList.ListofCowActivity"
             android:label="@string/animallist"
             android:screenOrientation="landscape">
 
+        </activity>
+
+
+        <activity
+
+            android:name=".screen.splash.SplashActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

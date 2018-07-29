@@ -7,74 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.mts.cow.nikolay.lifeofacow.screen.cowpassport.AddCowPassportActivity">
-
-
-
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        card_view:cardCornerRadius="8dp"
-        style="@style/MyCardViewStyle">
-
-
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
-        android:layout_height="29dp"
-        android:layout_weight="1">
-
-
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView_сow_numberL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:text="@string/сow_numberL"
-                android:textSize="18dp" />
-
-            <TextView
-                android:id="@+id/textView_сow_porodaL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/сow_porodaL"
-                android:layout_gravity="center_horizontal"
-                android:textSize="18dp" />
-
-            <TextView
-                android:id="@+id/textView_сow_mastL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/сow_mastL"
-                android:layout_gravity="center_horizontal"
-                android:textSize="18dp" />
-
-            <TextView
-                android:id="@+id/textView_сow_birthdayL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/сow_birthdayL"
-                android:layout_gravity="center_horizontal"
-                android:textSize="18dp" />
-        </TableRow>
-
-    </TableLayout>
-
-    </android.support.v7.widget.CardView>
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/listOfCows"
@@ -86,9 +19,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_view"
         tools:ignore="MissingConstraints" />
-
-
-
-
 
 </android.support.constraint.ConstraintLayout>

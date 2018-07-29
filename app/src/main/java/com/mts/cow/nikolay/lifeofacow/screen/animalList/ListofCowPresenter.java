@@ -3,13 +3,12 @@ package com.mts.cow.nikolay.lifeofacow.screen.animalList;
 
 import android.app.Activity;
 
-import com.mts.cow.nikolay.lifeofacow.data.Cows;
+import com.mts.cow.nikolay.lifeofacow.models.Cows;
 import com.mts.cow.nikolay.lifeofacow.data.CowsDataSource;
 import com.mts.cow.nikolay.lifeofacow.data.CowsRepository;
 import com.mts.cow.nikolay.lifeofacow.di.ActivityScoped;
 import com.mts.cow.nikolay.lifeofacow.screen.cowpassport.AddCowPassportActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nullable;

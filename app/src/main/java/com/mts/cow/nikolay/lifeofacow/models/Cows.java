@@ -1,26 +1,17 @@
-package com.mts.cow.nikolay.lifeofacow.data;
+package com.mts.cow.nikolay.lifeofacow.models;
 
 
 import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 import com.google.common.base.Objects;
 import com.google.common.base.Strings;
-import com.mts.cow.nikolay.lifeofacow.models.CowTTX;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Entity(tableName = "cows")
 public final class Cows {
-
-
 
     @NonNull
     @ColumnInfo(name = "entryid")
@@ -55,53 +46,15 @@ public final class Cows {
     @ColumnInfo(name = "completed")
     private final boolean mCompleted;
 
-    /**
-     * Use this constructor to create a new active Task.
-     *
-     * @param cowNumber       title of the task
-     * @param breed description of the task
-     */
-    @Ignore
-    public Cows(@Nullable String cowNumber, @Nullable String breed,@Nullable String suit, @Nullable String birthDay,@Nullable String mother,@Nullable String father) {
-        this(cowNumber, breed, UUID.randomUUID().toString(), false,suit,birthDay,mother,father);
-    }
 
-    /**
-     * Use this constructor to create an active Task if the Task already has an id (copy of another
-     * Task).
-     *
-     * @param cowNumber       title of the task
-     * @param breed description of the task
-     * @param id          id of the task
-     */
-    @Ignore
-    public Cows(@Nullable String cowNumber, @Nullable String breed, @NonNull String id,@Nullable String suit, @Nullable String birthDay,@Nullable String mother,@Nullable String father) {
-        this(cowNumber, breed, id, false,suit,birthDay,mother,father);
-    }
-
-    /**
-     * Use this constructor to create a new completed Task.
-     *
-     * @param cowNumber       title of the task
-     * @param breed description of the task
-     * @param completed   true if the task is completed, false if it's active
-     */
-    @Ignore
-    public Cows(@Nullable String cowNumber, @Nullable String breed, boolean completed,@Nullable String suit, @Nullable String birthDay,@Nullable String mother,@Nullable String father) {
-        this(cowNumber, breed, UUID.randomUUID().toString(), completed,suit,birthDay,mother,father);
-    }
-
-    /**
-     * Use this constructor to specify a completed Task if the Task already has an id (copy of
-     * another Task).
-     *
-     * @param cowNumber       title of the task
-     * @param breed description of the task
-     * @param id          id of the task
-     * @param completed   true if the task is completed, false if it's active
-     */
-    public Cows(@Nullable String cowNumber, @Nullable String breed,
-                @NonNull String id, boolean completed,@Nullable String suit, @Nullable String birthDay,@Nullable String mother,@Nullable String father) {
+    public Cows(@Nullable String cowNumber,
+                @Nullable String breed,
+                @NonNull String id,
+                boolean completed,
+                @Nullable String suit,
+                @Nullable String birthDay,
+                @Nullable String mother,
+                @Nullable String father) {
         mId = UUID.randomUUID().toString();
         mCowNumber = cowNumber;
         mBreed = breed;
@@ -110,6 +63,9 @@ public final class Cows {
         mBirthDay = birthDay;
         mMother = mother;
         mFather = father;
+
+
+
     }
 
     @NonNull
@@ -156,6 +112,8 @@ public final class Cows {
         return mFather;
     }
 
+
+
     public boolean isCompleted() {
         return mCompleted;
     }
@@ -188,10 +146,5 @@ public final class Cows {
     public String toString() {
         return "Task with title " + mCowNumber;
     }*/
-
-
-
-
-
 
 }
